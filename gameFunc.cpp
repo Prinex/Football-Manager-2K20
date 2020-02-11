@@ -19,9 +19,8 @@ Game::Game():
 
 
 
-
-
-/** GameWindow class declarations
+/**
+*       GameWindow class declarations
 */
 
 GameWindow::GameWindow() :
@@ -62,6 +61,10 @@ GameWindow::GameWindow() :
 
 void GameWindow::InitWindow()
 {
+
+    int countBuffer = 0;
+
+    MainWindow init;
     SetConsoleTitleA("Soccer Manager 2k20.exe");
     ShowConsoleCursor(false);
     char effect[10];
@@ -91,18 +94,13 @@ void GameWindow::InitWindow()
     InitSquad();
 
 
-    /*
-    MainWindow init;
-    init.MainMenu();*/
-
-
 }
 
 
 void GameWindow::InitSquad()
 {
     int pointer = 0;
-
+    int countBuffer = 0;
     while(true)
     {
 
@@ -192,6 +190,7 @@ void GameWindow::InitSquad()
                     }
                 }
             }
+
         }
         Sleep(150);
     }
@@ -209,10 +208,15 @@ void GameWindow::ShowConsoleCursor(bool showFlag)
     SetConsoleCursorInfo(out, &cursorInfo);
 }
 
+
+/**
+*       Country options defined
+*/
+
 void GameWindow::Italy()
 {
     int pointer = 0;
-
+    int countBuffer = 0;
     while(true)
     {
 
@@ -237,7 +241,6 @@ void GameWindow::Italy()
                 std::cout << select_league[int(CountryOption::ITALY)][i] << "\n\n";
             }
         }
-
         while(true)
         {
             if (GetAsyncKeyState(VK_UP) != 0)
@@ -264,12 +267,18 @@ void GameWindow::Italy()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
+                countBuffer++;
                 Italy();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
                 InitSquad();
             }
+
             else if (GetAsyncKeyState(VK_RETURN) != 0)
             {
                 switch(pointer)
@@ -277,14 +286,14 @@ void GameWindow::Italy()
                     case int(LeagueOption::SERIE_A):
                     {
                         SetSelectedLeague(select_league[0][int(LeagueOption::SERIE_A)]);
-                        clearBuffer = 0;
+
                         SerieA();
                     }
                     case int(LeagueOption::SERIE_B):
                     {
 
                         SetSelectedLeague(select_league[0][int(LeagueOption::SERIE_B)]);
-                        clearBuffer = 0;
+
                         SerieB();
                     }
                 }
@@ -297,7 +306,7 @@ void GameWindow::Italy()
 void GameWindow::Spain()
 {
     int pointer = 0;
-
+    int countBuffer = 0;
     while(true)
     {
 
@@ -349,7 +358,12 @@ void GameWindow::Spain()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
+                countBuffer++;
                 Spain();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
@@ -362,19 +376,17 @@ void GameWindow::Spain()
                     case int(LeagueOption::LaLiga):
                     {
                         SetSelectedLeague(select_league[1][int(LeagueOption::LaLiga)]);
-                        clearBuffer = 0;
                         Laliga();
-
                     }
                     case int(LeagueOption::SegundaDivision):
                     {
-                        SetSelectedLeague(select_league[1][int(LeagueOption::SegundaDivision)]);
-                        clearBuffer = 0;
-                        SegundaDiv();
 
+                        SetSelectedLeague(select_league[1][int(LeagueOption::SegundaDivision)]);
+                        SegundaDiv();
                     }
                 }
             }
+
         }
         Sleep(150);
     }
@@ -384,7 +396,7 @@ void GameWindow::Spain()
 void GameWindow::Germany()
 {
     int pointer = 0;
-
+    int countBuffer = 0;
     while(true)
     {
 
@@ -432,6 +444,17 @@ void GameWindow::Germany()
                 }
                 break;
             }
+            else if (GetAsyncKeyState(VK_RETURN) != 0 && clearBuffer == 0)
+            {
+                std::cout << std::boolalpha;
+                clearBuffer = 1;
+                countBuffer++;
+                Germany();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
+            }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
                 InitSquad();
@@ -443,12 +466,12 @@ void GameWindow::Germany()
                     case int(LeagueOption::Bundesliga):
                     {
                         SetSelectedLeague(select_league[2][int(LeagueOption::Bundesliga)]);
-
+                        BL();
                     }
                     case int(LeagueOption::Bundesliga2):
                     {
                         SetSelectedLeague(select_league[2][int(LeagueOption::Bundesliga2)]);
-
+                        BL2();
                     }
                 }
             }
@@ -460,6 +483,7 @@ void GameWindow::Germany()
 void GameWindow::England()
 {
     int pointer = 0;
+    int countBuffer = 0;
     while(true)
     {
 
@@ -507,6 +531,17 @@ void GameWindow::England()
                 }
                 break;
             }
+            else if (GetAsyncKeyState(VK_RETURN) != 0 && clearBuffer == 0)
+            {
+                std::cout << std::boolalpha;
+                clearBuffer = 1;
+                countBuffer++;
+                England();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
+            }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
                 InitSquad();
@@ -517,8 +552,8 @@ void GameWindow::England()
                 {
                     case int(LeagueOption::Premier_League):
                     {
-                        SetSelectedLeague(select_league[2][int(LeagueOption::Premier_League)]);
-
+                        SetSelectedLeague(select_league[3][int(LeagueOption::Premier_League)]);
+                        PremierL();
                     }
                 }
             }
@@ -529,8 +564,8 @@ void GameWindow::England()
 
 void GameWindow::France()
 {
-
     int pointer = 0;
+    int countBuffer = 0;
     while(true)
     {
 
@@ -578,6 +613,17 @@ void GameWindow::France()
                 }
                 break;
             }
+            else if (GetAsyncKeyState(VK_RETURN) != 0 && clearBuffer == 0)
+            {
+                std::cout << std::boolalpha;
+                clearBuffer = 1;
+                countBuffer++;
+                France();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
+            }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
                 InitSquad();
@@ -588,13 +634,13 @@ void GameWindow::France()
                 {
                     case int(LeagueOption::Ligue1):
                     {
-                        SetSelectedLeague(select_league[3][int(LeagueOption::Ligue1)]);
-
+                        SetSelectedLeague(select_league[4][int(LeagueOption::Ligue1)]);
+                        Lig1();
                     }
                     case int(LeagueOption::Ligue2):
                     {
-                        SetSelectedLeague(select_league[3][int(LeagueOption::Ligue2)]);
-
+                        SetSelectedLeague(select_league[4][int(LeagueOption::Ligue2)]);
+                        Lig2();
                     }
                 }
             }
@@ -603,11 +649,14 @@ void GameWindow::France()
     }
 }
 
+/**
+*       League options defined
+*/
 void GameWindow::SerieA()
 {
-
-
     int pointer = 0;
+    int countBuffer = 0;
+
     while(true)
     {
         system("CLS");
@@ -656,7 +705,12 @@ void GameWindow::SerieA()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
+                countBuffer++;
                 SerieA();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
@@ -671,6 +725,8 @@ void GameWindow::SerieA()
 void GameWindow::SerieB()
 {
     int pointer = 0;
+    int countBuffer = 0;
+
     while(true)
     {
         system("CLS");
@@ -719,7 +775,12 @@ void GameWindow::SerieB()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
+                countBuffer++;
                 SerieB();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
@@ -728,11 +789,15 @@ void GameWindow::SerieB()
         }
         Sleep(150);
     }
+
 }
+
 
 void GameWindow::Laliga()
 {
     int pointer = 0;
+    int countBuffer = 0;
+
     while(true)
     {
         system("CLS");
@@ -781,7 +846,12 @@ void GameWindow::Laliga()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
+                countBuffer++;
                 Laliga();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
@@ -790,11 +860,14 @@ void GameWindow::Laliga()
         }
         Sleep(150);
     }
+
 }
 
 void GameWindow::SegundaDiv()
 {
     int pointer = 0;
+    int countBuffer = 0;
+
     while(true)
     {
         system("CLS");
@@ -843,7 +916,12 @@ void GameWindow::SegundaDiv()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
+                countBuffer++;
                 SegundaDiv();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
@@ -852,31 +930,34 @@ void GameWindow::SegundaDiv()
         }
         Sleep(150);
     }
+
 }
 
 void GameWindow::BL()
 {
     int pointer = 0;
+    int countBuffer = 0;
+
     while(true)
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 5; i++)
         {
             if (i == pointer)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
                 std::cout << '\t';
                 std::cout << ">";
-                std::cout << select_squad[int(CountryOption::SPAIN)+2][i] << "\n\n";
+                std::cout << select_squad[int(CountryOption::GERMANY)+2][i] << "\n\n";
             }
             else
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
                 std::cout << ">";
                 std::cout << '\t';
-                std::cout << select_squad[int(CountryOption::SPAIN)+2][i] << "\n\n";
+                std::cout << select_squad[int(CountryOption::GERMANY)+2][i] << "\n\n";
             }
         }
         while(true)
@@ -886,7 +967,7 @@ void GameWindow::BL()
                 pointer -= 1;
                 if (pointer == -1)
                 {
-                    pointer = 2;
+                    pointer = 4;
                 }
                 break;
             }
@@ -895,7 +976,7 @@ void GameWindow::BL()
             {
                 pointer += 1;
 
-                if (pointer == 3)
+                if (pointer == 5)
                 {
                     pointer = 0;
                 }
@@ -905,7 +986,12 @@ void GameWindow::BL()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
-                SegundaDiv();
+                countBuffer++;
+                BL();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
@@ -914,7 +1000,304 @@ void GameWindow::BL()
         }
         Sleep(150);
     }
+
 }
+
+void GameWindow::BL2()
+{
+    int pointer = 0;
+    int countBuffer = 0;
+
+    while(true)
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == pointer)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                std::cout << '\t';
+                std::cout << ">";
+                std::cout << select_squad[int(CountryOption::GERMANY)+3][i] << "\n\n";
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << ">";
+                std::cout << '\t';
+                std::cout << select_squad[int(CountryOption::GERMANY)+3][i] << "\n\n";
+            }
+        }
+        while(true)
+        {
+            if (GetAsyncKeyState(VK_UP) != 0)
+            {
+                pointer -= 1;
+                if (pointer == -1)
+                {
+                    pointer = 3;
+                }
+                break;
+            }
+
+            else if (GetAsyncKeyState(VK_DOWN) != 0)
+            {
+                pointer += 1;
+
+                if (pointer == 4)
+                {
+                    pointer = 0;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0 && clearBuffer == 0)
+            {
+                std::cout << std::boolalpha;
+                clearBuffer = 1;
+                countBuffer++;
+                BL2();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
+            }
+            else if (GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                InitSquad();
+            }
+        }
+        Sleep(150);
+    }
+
+}
+
+void GameWindow::PremierL()
+{
+    int pointer = 0;
+    int countBuffer = 0;
+
+    while(true)
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+        for (int i = 0; i < 9; i++)
+        {
+            if (i == pointer)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                std::cout << '\t';
+                std::cout << ">";
+                std::cout << select_squad[int(CountryOption::ENGLAND)+3][i] << "\n\n";
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << ">";
+                std::cout << '\t';
+                std::cout << select_squad[int(CountryOption::ENGLAND)+3][i] << "\n\n";
+            }
+        }
+        while(true)
+        {
+            if (GetAsyncKeyState(VK_UP) != 0)
+            {
+                pointer -= 1;
+                if (pointer == -1)
+                {
+                    pointer = 8;
+                }
+                break;
+            }
+
+            else if (GetAsyncKeyState(VK_DOWN) != 0)
+            {
+                pointer += 1;
+
+                if (pointer == 9)
+                {
+                    pointer = 0;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0 && clearBuffer == 0)
+            {
+                std::cout << std::boolalpha;
+                clearBuffer = 1;
+                countBuffer++;
+                PremierL();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
+            }
+            else if (GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                InitSquad();
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0)
+            {
+                switch(pointer)
+                {
+                    case int(PremierLgList::ManchesterU):
+                    {
+                        SetSelectedSquad(select_league[3][int(PremierLgList::ManchesterU)]);
+                        MainWindow init;
+                        init.MainMenu();
+                    }
+                }
+            }
+        }
+        Sleep(150);
+    }
+
+}
+
+void GameWindow::Lig1()
+{
+    int pointer = 0;
+    int countBuffer = 0;
+
+    while(true)
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (i == pointer)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                std::cout << '\t';
+                std::cout << ">";
+                std::cout << select_squad[int(CountryOption::FRANCE)+3][i] << "\n\n";
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << ">";
+                std::cout << '\t';
+                std::cout << select_squad[int(CountryOption::FRANCE)+3][i] << "\n\n";
+            }
+        }
+        while(true)
+        {
+            if (GetAsyncKeyState(VK_UP) != 0)
+            {
+                pointer -= 1;
+                if (pointer == -1)
+                {
+                    pointer = 4;
+                }
+                break;
+            }
+
+            else if (GetAsyncKeyState(VK_DOWN) != 0)
+            {
+                pointer += 1;
+
+                if (pointer == 5)
+                {
+                    pointer = 0;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0 && clearBuffer == 0)
+            {
+                std::cout << std::boolalpha;
+                clearBuffer = 1;
+                countBuffer++;
+                Lig1();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
+            }
+            else if (GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                InitSquad();
+            }
+        }
+        Sleep(150);
+    }
+
+}
+
+void GameWindow::Lig2()
+{
+    int pointer = 0;
+    int countBuffer = 0;
+
+    while(true)
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+        for (int i = 0; i < 4; i++)
+        {
+            if (i == pointer)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                std::cout << '\t';
+                std::cout << ">";
+                std::cout << select_squad[int(CountryOption::FRANCE)+4][i] << "\n\n";
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << ">";
+                std::cout << '\t';
+                std::cout << select_squad[int(CountryOption::FRANCE)+4][i] << "\n\n";
+            }
+        }
+        while(true)
+        {
+            if (GetAsyncKeyState(VK_UP) != 0)
+            {
+                pointer -= 1;
+                if (pointer == -1)
+                {
+                    pointer = 3;
+                }
+                break;
+            }
+
+            else if (GetAsyncKeyState(VK_DOWN) != 0)
+            {
+                pointer += 1;
+
+                if (pointer == 4)
+                {
+                    pointer = 0;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0 && clearBuffer == 0)
+            {
+                std::cout << std::boolalpha;
+                clearBuffer = 1;
+                countBuffer++;
+                Lig2();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
+            }
+            else if (GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                InitSquad();
+            }
+        }
+        Sleep(150);
+    }
+
+}
+
+/**
+*       Setters and getters methods defined
+*/
 
 std::string GameWindow::GetUsername()
 {
@@ -963,7 +1346,8 @@ void GameWindow::SetSelectedSquad(std::string &squad)
 }
 
 
-/** MainWindow class declarations
+/**
+*       MainWindow class definitions
 */
 
 MainWindow::MainWindow() :
@@ -986,6 +1370,7 @@ void MainWindow::MainMenu()
 {
 
     int pointer = 0;
+    int countBuffer = 0;
 
     while(true)
     {
@@ -1034,7 +1419,12 @@ void MainWindow::MainMenu()
             {
                 std::cout << std::boolalpha;
                 clearBuffer = 1;
+                countBuffer++;
                 MainMenu();
+            }
+            else if (countBuffer == 1)
+            {
+                clearBuffer = 0;
             }
             else if (GetAsyncKeyState(VK_RETURN) != 0)
             {
@@ -1095,6 +1485,7 @@ void MainWindow::MainMenu()
                         pressed = true;
                         while(true)
                         {
+
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
                             {
                                 MainMenu();
