@@ -10,8 +10,6 @@
 
 enum class GameStatus{NONE, PLAYING, WIN, LOSE, PAUSE, ABANDON, EXIT};
 
-
-
 class Game
 {
     int time1, time2, total_time;
@@ -44,6 +42,8 @@ public:
 enum class CountryOption{ITALY, SPAIN, GERMANY, ENGLAND, FRANCE};
 
 enum class LeagueOption{SERIE_A, SERIE_B, LaLiga = 0, SegundaDivision = 1, Bundesliga = 0, Bundesliga2 = 1, Premier_League = 0, Ligue1 = 0, Ligue2 = 1};
+
+enum class PremierLgList{Liverpool, ManchesterU, Arsenal, Chelsea, Tottenham, CrystalPalace, Everton, ManchesterC, Leicester};
 
 
 const int SIZE1 = 5;
