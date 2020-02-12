@@ -42,7 +42,7 @@ class Morale: public FanTeamPlay{
         void updateMorale(){
             updateFanMorale();
             updateTeamPlay();
-            morale = (getTeamPlay + getFanMorale) / 2;
+            morale = (getTeamPlay() + getFanMorale()) / 2;
 
         }
         int getMorale(){
