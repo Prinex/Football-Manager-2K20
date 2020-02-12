@@ -18,14 +18,14 @@ class FanTeamPlay{
 
     public:
         void updateFanMorale(){
-            fanMorale = ((capacity)/1000) * (1+adMult) * (weatherMult) + 100*(leagueID+1) + 10*(score+attempts)
+            fanMorale = (capacity / 1000) * (1 + adMult) * (weatherMult) + 100 * (leagueID + 1) + 10 * (score + attempts)
         }
         int getFanMorale(){
             return fanMorale
         }
 
         void updateTeamPlay(){
-            teamPlay (goals - lossses)*100 + teamRating
+            teamPlay = (goals - lossses) * 100 + teamRating
         }
 
         int getTeamPlay(){
