@@ -1,8 +1,9 @@
 #include <iostream>
 using namespace std;
 
-class FanNoTeamPlay{
-    protected:
+//Class for Fan Morale and Team play
+class FanTeamPlay{
+    protected: 
         int fanMorale;
         int capacity;
         int weatherMult;
@@ -32,7 +33,7 @@ class FanNoTeamPlay{
         }
 
 }
-
+// Morale class inherits Fan TeamPlay class
 class Morale: public FanTeamPlay{
     protected:
         int morale;
