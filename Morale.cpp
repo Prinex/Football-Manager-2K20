@@ -3,7 +3,7 @@ using namespace std;
 
 //Class for Fan Morale and Team play
 class FanTeamPlay{
-    protected: 
+    protected: // Protected variables (for encapsulation) - NEED TO MAKE CALCULATED WHEN MATCH OPPORTUNITIES COMPLETE
         int fanMorale;
         int capacity;
         int weatherMult;
