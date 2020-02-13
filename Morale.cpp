@@ -2,7 +2,7 @@
 using namespace std;
 
 //Class for Fan Morale and Team play
-class FanTeamPlay{
+class FanMorale{
     protected: // Protected variables (for encapsulation) - NEED TO MAKE CALCULATED WHEN MATCH OPPORTUNITIES COMPLETE
         int fanMorale;
         int capacity;
@@ -38,7 +38,7 @@ class TeamPlay{
 }
 
 // Morale class inherits Fan TeamPlay class
-class Morale: public FanMorale{
+class Morale: public FanMorale, public TeamPlay{
     protected:
         int morale;
         
