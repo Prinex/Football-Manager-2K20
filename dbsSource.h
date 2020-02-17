@@ -36,8 +36,8 @@ private:
 
 public:
 
-    Players(const std::string &name,int age, const std::string &nationality, int height, double weight, int number, const std::string &position,
-            const std::string &morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
+    Players(const std::string &name,int age, const std::string &nationality, int height, double weight, int number, std::string position,
+            std::string morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
             int diving, int handling, int skill_position, int overall_points);
 
     static void InitPlayers(std::vector<Players> &source, std::vector<Players> &dest);
