@@ -1,14 +1,22 @@
 #include <iostream>
 #include <windows.h>
 #include "gameFunc.h"
+#include "dbsSource.h"
+#include "dbsCreation.h"
+
 
 using namespace std;
 
 int main()
 {
-    MainWindow options;
+    /*
+    GameWindow init;
+    init.InitWindow();
+    */
 
-    options.MainMenu();
+    Players::InitPlayers(LiverpoolSubs, InitLiverpoolSubs);
+    Players::PrintPlayers(LiverpoolSubs);
+
 
 
     return 0;
