@@ -3,10 +3,68 @@
 #include <stdio.h>
 #include <windows.h>
 #include <iomanip>
-#include "gameFunc.h"
 #include <stdlib.h>
+#include <conio.h>
+
+#include "gameFunc.h"
+#include "dbsSource.h"
+#include "dbsCreation.h"
+
+/**
+*       Player class definiton
+*/
 
 
+User::User() :
+    fullname(""),
+    country(""),
+    league(""),
+    squad("")
+{
+}
+
+
+std::string User::GetUsername()
+{
+    return fullname;
+}
+void User::SetUserName(std::string &fn, std::string &ln)
+{
+    fullname = fn + " " + ln;
+}
+std::string User::GetCountry()
+{
+    return country;
+}
+void User::SetCountry(std::string &setCountry)
+{
+    country = setCountry;
+}
+
+std::string User::GetLeague()
+{
+    return league;
+}
+void User::SetLeague(std::string &setLeague)
+{
+    league = setLeague;
+}
+std::string User::GetSquad()
+{
+    return squad;
+}
+void User::SetSquad(std::string &setSquad)
+{
+    squad = setSquad;
+}
+
+// Default user
+User initUser;
+
+
+/**
+*       Game class defined
+*/
 Game::Game():
     time1(0),
     time2(0),
@@ -20,13 +78,10 @@ Game::Game():
 
 
 /**
-*       GameWindow class declarations
+*       Game class defined
 */
 
 GameWindow::GameWindow() :
-    firstname(""),
-    lastname(""),
-    fullName(""),
     select_country
     {
         "ITALY",
@@ -61,6 +116,13 @@ GameWindow::GameWindow() :
 
 void GameWindow::InitWindow()
 {
+    /**
+    *       Initializing the teams within players
+    *
+    Players::InitPlayers(LiverpoolSubs, InitLiverpoolSubs);
+    Players::PrintPlayers(LiverpoolSubs);
+    */
+
 
     int countBuffer = 0;
 
@@ -84,12 +146,17 @@ void GameWindow::InitWindow()
         system("CLS");
     }
 
-    std::string fn, ln;
-    std::cout << "Choose manager's first and last name: ";
-    std::cin >> fn >> ln;
-    SetUsername(fn, ln);
 
-    system("cls");
+    std::string firstname, lastname;
+
+    std::cout << "Enter manager's first name : ";
+    std::cin >> firstname;
+    std::cout << '\n';
+    std::cout << "Enter manager's last name : ";
+    std::cin >> lastname;
+
+    initUser.SetUserName(firstname, lastname);
+
 
     InitSquad();
 
@@ -106,7 +173,7 @@ void GameWindow::InitSquad()
 
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-
+        std::cout << "Choose a country: " << "\n\n";
         for(int i = 0; i < SIZE1; i++)
         {
 
@@ -160,31 +227,31 @@ void GameWindow::InitSquad()
                 {
                     case int(CountryOption::ITALY):
                     {
-                        SetSelectedCountry(select_country[int(CountryOption::ITALY)]);
                         clearBuffer = 0;
                         Italy();
                     }
                     case int(CountryOption::SPAIN):
                     {
-                        SetSelectedCountry(select_country[int(CountryOption::SPAIN)]);
+
                         clearBuffer = 0;
                         Spain();
                     }
                     case int(CountryOption::GERMANY):
                     {
-                        SetSelectedCountry(select_country[int(CountryOption::GERMANY)]);
+
                         clearBuffer = 0;
                         Germany();
                     }
                     case int(CountryOption::ENGLAND):
                     {
-                        SetSelectedCountry(select_country[int(CountryOption::ENGLAND)]);
+                        std::string setCountry = "England";
+                        initUser.SetCountry(setCountry);
                         clearBuffer = 0;
                         England();
                     }
                     case int(CountryOption::FRANCE):
                     {
-                        SetSelectedCountry(select_country[int(CountryOption::FRANCE)]);
+
                         clearBuffer = 0;
                         France();
                     }
@@ -223,9 +290,10 @@ void GameWindow::Italy()
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-
+        std::cout << "Choose a league: " << "\n\n";
         for (int i = 0; i < 2; i++)
         {
+
             if (i == pointer)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
@@ -285,15 +353,10 @@ void GameWindow::Italy()
                 {
                     case int(LeagueOption::SERIE_A):
                     {
-                        SetSelectedLeague(select_league[0][int(LeagueOption::SERIE_A)]);
-
                         SerieA();
                     }
                     case int(LeagueOption::SERIE_B):
                     {
-
-                        SetSelectedLeague(select_league[0][int(LeagueOption::SERIE_B)]);
-
                         SerieB();
                     }
                 }
@@ -312,7 +375,7 @@ void GameWindow::Spain()
 
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-
+        std::cout << "Choose a league: " << "\n\n";
 
         for (int i = 0; i < 2; i++)
         {
@@ -375,18 +438,14 @@ void GameWindow::Spain()
                 {
                     case int(LeagueOption::LaLiga):
                     {
-                        SetSelectedLeague(select_league[1][int(LeagueOption::LaLiga)]);
                         Laliga();
                     }
                     case int(LeagueOption::SegundaDivision):
                     {
-
-                        SetSelectedLeague(select_league[1][int(LeagueOption::SegundaDivision)]);
                         SegundaDiv();
                     }
                 }
             }
-
         }
         Sleep(150);
     }
@@ -402,7 +461,7 @@ void GameWindow::Germany()
 
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-
+        std::cout << "Choose a league: " << "\n\n";
 
         for (int i = 0; i < 2; i++)
         {
@@ -465,12 +524,10 @@ void GameWindow::Germany()
                 {
                     case int(LeagueOption::Bundesliga):
                     {
-                        SetSelectedLeague(select_league[2][int(LeagueOption::Bundesliga)]);
                         BL();
                     }
                     case int(LeagueOption::Bundesliga2):
                     {
-                        SetSelectedLeague(select_league[2][int(LeagueOption::Bundesliga2)]);
                         BL2();
                     }
                 }
@@ -489,7 +546,7 @@ void GameWindow::England()
 
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-
+        std::cout << "Choose a league: " << "\n\n";
 
         for (int i = 0; i < 1; i++)
         {
@@ -552,7 +609,8 @@ void GameWindow::England()
                 {
                     case int(LeagueOption::Premier_League):
                     {
-                        SetSelectedLeague(select_league[3][int(LeagueOption::Premier_League)]);
+                        std::string setLeague = "Premier League";
+                        initUser.SetLeague(setLeague);
                         PremierL();
                     }
                 }
@@ -571,7 +629,7 @@ void GameWindow::France()
 
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-
+        std::cout << "Choose a league: " << "\n\n";
 
         for (int i = 0; i < 2; i++)
         {
@@ -634,12 +692,10 @@ void GameWindow::France()
                 {
                     case int(LeagueOption::Ligue1):
                     {
-                        SetSelectedLeague(select_league[4][int(LeagueOption::Ligue1)]);
                         Lig1();
                     }
                     case int(LeagueOption::Ligue2):
                     {
-                        SetSelectedLeague(select_league[4][int(LeagueOption::Ligue2)]);
                         Lig2();
                     }
                 }
@@ -661,6 +717,7 @@ void GameWindow::SerieA()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 7; i++)
         {
@@ -731,6 +788,7 @@ void GameWindow::SerieB()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 6; i++)
         {
@@ -802,6 +860,7 @@ void GameWindow::Laliga()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 8; i++)
         {
@@ -872,6 +931,7 @@ void GameWindow::SegundaDiv()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 3; i++)
         {
@@ -942,6 +1002,7 @@ void GameWindow::BL()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 5; i++)
         {
@@ -1012,6 +1073,7 @@ void GameWindow::BL2()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 4; i++)
         {
@@ -1082,6 +1144,7 @@ void GameWindow::PremierL()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 9; i++)
         {
@@ -1143,7 +1206,8 @@ void GameWindow::PremierL()
                 {
                     case int(PremierLgList::ManchesterU):
                     {
-                        SetSelectedSquad(select_league[3][int(PremierLgList::ManchesterU)]);
+                        std::string setSquad = "F.C. Manchester United";
+                        initUser.SetSquad(setSquad);
                         MainWindow init;
                         init.MainMenu();
                     }
@@ -1164,6 +1228,7 @@ void GameWindow::Lig1()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 5; i++)
         {
@@ -1234,6 +1299,7 @@ void GameWindow::Lig2()
     {
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+        std::cout << "Choose a squad: " << "\n\n";
 
         for (int i = 0; i < 4; i++)
         {
@@ -1295,55 +1361,7 @@ void GameWindow::Lig2()
 
 }
 
-/**
-*       Setters and getters methods defined
-*/
 
-std::string GameWindow::GetUsername()
-{
-    return fullName;
-}
-
-void GameWindow::SetUsername(std::string &firstname, std::string &lastname)
-{
-    fullName = "Mr. " + firstname + " " + lastname;
-}
-
-
-std::string GameWindow::GetSelectedCountry()
-{
-    return country;
-}
-
-
-void GameWindow::SetSelectedCountry(std::string &country)
-{
-    country = country;
-}
-
-
-std::string GameWindow::GetSelectedLeague()
-{
-    return league;
-}
-
-
-void GameWindow::SetSelectedLeague(std::string &league)
-{
-    league = league;
-}
-
-
-std::string GameWindow::GetSelectedtSquad()
-{
-    return squad;
-}
-
-
-void GameWindow::SetSelectedSquad(std::string &squad)
-{
-    squad = squad;
-}
 
 
 /**
@@ -1354,6 +1372,7 @@ MainWindow::MainWindow() :
     pressed(false),
     Options
     {
+        "Status",
         "UEFA",
         "Kick Off",
         "Buy Player",
@@ -1384,12 +1403,12 @@ void MainWindow::MainMenu()
             if (i == pointer)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-                std::cout << Options[i] << '\t';
+                std::cout << std::setw(5) << Options[i] << std::setw(5) << " ";
             }
             else
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                std::cout << Options[i] << '\t';
+                std::cout << std::setw(5) << Options[i] << std::setw(5) << " ";
             }
         }
 
@@ -1400,7 +1419,7 @@ void MainWindow::MainMenu()
                 pointer -= 1;
                 if (pointer == -1)
                 {
-                    pointer = 6;
+                    pointer = 7;
                 }
                 break;
             }
@@ -1428,8 +1447,30 @@ void MainWindow::MainMenu()
             }
             else if (GetAsyncKeyState(VK_RETURN) != 0)
             {
+
                 switch(pointer)
                 {
+                    case int(MenuOptions::STATUS):
+                    {
+                        system("cls");
+                        pressed = true;
+
+                        std::cout << std::setw(10) << "SQUAD: " << " " << std::setw(10) << initUser.GetSquad()  << "\n\n";
+                        std::cout << std::setw(10) << "LEAGUE: " << " " << std::setw(10) << initUser.GetLeague()  << "\n\n";
+                        std::cout << std::setw(10) << "COUNTRY: " << " " << std::setw(10) << initUser.GetCountry() << "\n\n";
+                        std::cout << std::setw(10) << "MANAGER: " << " " << std::setw(10) << initUser.GetUsername()  << "\n\n";
+
+                        while(true)
+                        {
+
+                            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+                            if(GetAsyncKeyState(VK_ESCAPE) != 0)
+                            {
+                                MainMenu();
+                            }
+                        }
+                    }
                     case int(MenuOptions::UEFA):
                     {
                         system("cls");
@@ -1438,10 +1479,10 @@ void MainWindow::MainMenu()
                         {
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
                             {
+
                                 MainMenu();
                             }
                         }
-
                     }
                     case int(MenuOptions::KickOff):
                     {
@@ -1459,6 +1500,7 @@ void MainWindow::MainMenu()
                     {
                         system("cls");
                         pressed = true;
+
                         while(true)
                         {
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
@@ -1481,10 +1523,13 @@ void MainWindow::MainMenu()
                     }
                     case int(MenuOptions::ViewSquad):
                     {
+
                         system("cls");
                         pressed = true;
+                        ViewSquad();
                         while(true)
                         {
+
 
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
                             {
@@ -1514,4 +1559,29 @@ void MainWindow::MainMenu()
         }
         Sleep(150);
     }
+}
+
+void MainWindow::ViewSquad()
+{
+    if (initUser.GetSquad() == "F.C. Manchester United")
+    {
+        Players::InitPlayers(ManchesterInfield, InitManchesterInfield);
+        Players::PrintPlayers(InitManchesterInfield);
+
+        std::cout << '\n';
+
+        Players::InitPlayers(ManchesterUSubs, InitManchesterSubs);
+        Players::PrintPlayers(InitManchesterSubs);
+         while(true)
+        {
+
+
+
+            if(GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                MainMenu();
+            }
+        }
+    }
+
 }
