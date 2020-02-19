@@ -32,6 +32,9 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="dbsCreation.h" />
+		<Unit filename="dbsSource.cpp" />
+		<Unit filename="dbsSource.h" />
 		<Unit filename="gameFunc.cpp" />
 		<Unit filename="gameFunc.h" />
 		<Unit filename="main.cpp" />
