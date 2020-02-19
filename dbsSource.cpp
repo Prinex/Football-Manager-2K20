@@ -3,8 +3,13 @@
 #include <iomanip>
 
 
+<<<<<<< HEAD
 Players::Players(const std::string &name, int age, const std::string &nationality, int height, double weight, int number, const std::string &position,
                  const std::string &morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
+=======
+Players::Players(const std::string &name, int age, const std::string &nationality, int height, double weight, int number, std::string position,
+                 std::string morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
+>>>>>>> 61621e567c5dbc5ffbac9bb4008c6db8632d0af7
                  int diving, int handling, int skill_position, int overall_points) :
                      name(name),
                      age(age),
