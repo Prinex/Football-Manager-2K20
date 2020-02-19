@@ -7,11 +7,38 @@
 
 
 
+class User
+{
+private:
+    std::string firstname, lastname, fullname;
+    std::string country, league, squad;
+
+public:
+    User();
+
+    std::string GetUsername();
+    void SetUserName(std::string &fn, std::string &ln);
+
+    std::string GetCountry();
+    void SetCountry(std::string &setCountry);
+
+    std::string GetLeague();
+    void SetLeague(std::string &setLeague);
+
+    std::string GetSquad();
+    void SetSquad(std::string &setSquad);
+
+};
+
+
+
 
 enum class GameStatus{NONE, PLAYING, WIN, LOSE, PAUSE, ABANDON, EXIT};
 
 class Game
 {
+private:
+
     int time1, time2, total_time;
     int your_score, opponent_score;
     GameStatus status;
@@ -35,6 +62,8 @@ public:
     GameStatus GetStatus();
     void SetStatus(GameStatus status);
 
+
+
 };
 
 
@@ -46,13 +75,12 @@ enum class LeagueOption{SERIE_A, SERIE_B, LaLiga = 0, SegundaDivision = 1, Bunde
 enum class PremierLgList{Liverpool, ManchesterU, Arsenal, Chelsea, Tottenham, CrystalPalace, Everton, ManchesterC, Leicester};
 
 
-const int SIZE1 = 5;
 
+const int SIZE1 = 5;
 
 class GameWindow
 {
-    std::string firstname, lastname, fullName;
-    std::string country, league, squad;
+private:
     std::array<std::string, SIZE1> select_country;
     std::vector<std::vector<std::string>> select_league;
     std::vector<std::vector<std::string>> select_squad;
@@ -60,7 +88,6 @@ class GameWindow
 public:
     GameWindow();
     bool clearBuffer = false;
-
 
     void InitWindow();
     void InitSquad();
@@ -81,32 +108,18 @@ public:
     void PremierL();
     void Lig1();
     void Lig2();
-
-    std::string GetUsername();
-    void SetUsername(std::string &firstname, std::string &lastname);
-
-    std::string GetSelectedCountry();
-    void SetSelectedCountry(std::string &country);
-
-    std::string GetSelectedLeague();
-    void SetSelectedLeague(std::string &league);
-
-    std::string GetSelectedtSquad();
-    void SetSelectedSquad(std::string &squad);
-
-
-
 };
 
 
-enum class MenuOptions{UEFA, KickOff, BuyPlayer, SellPlayer, ViewSquad, SwitchPlayers, Exit};
+enum class MenuOptions{STATUS, UEFA, KickOff, BuyPlayer, SellPlayer, ViewSquad, SwitchPlayers, Exit};
 
 
-const int COUNT = 7;
+const int COUNT = 8;
 
 
 class MainWindow : public GameWindow
 {
+private:
     bool pressed;
     std::array<std::string, COUNT> Options;
 
