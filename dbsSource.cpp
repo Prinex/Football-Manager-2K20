@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <algorithm>
+#include <string>
 
 /**
 *       Players class definiton
@@ -68,35 +69,35 @@ std::string Squad::GetManager() const
 
 void Squad::GetPlayers()
 {
+
+
     std::cout << "Infield players" << "\n\n";
     std::cout << std::setw(30) << "Name :" << std::setw(30) << "Position :" << "\n\n";
-    for(int i = 0; i < inField.size(); i++)
+    for(unsigned int i = 0; i < inField.size(); i++)
     {
         std::cout << std::setw(30) << inField[i].name << std::setw(30) << inField[i].position << '\n';
     }
 
     std::cout << "\n\n\n";
     std::cout << "Substitutes" << "\n\n";
-    for(int i = 0; i < subs.size(); i++)
+    for(unsigned int i = 0; i < subs.size(); i++)
     {
         std::cout<< std::setw(30) << subs[i].name << std::setw(30) << subs[i].position << '\n';
     }
-
-
-    std::string viewPl;
-    std::cout << "View a player : ";
-    std::getline(std::cin, viewPl);
-    viewPlayer(viewPl);
+    std::string player;
+    std::cin >> player;
+    system("cls");
+    viewPlayer(player);
 }
 
-void Squad::viewPlayer(std::string &viewAPlayer)
+void Squad::viewPlayer(std::string &pl)
 {
 
     // BIO
 
-    for (int i = 0; i < inField.size(); i++)
+    for (unsigned int i = 0; i < inField.size(); i++)
     {
-        if(viewAPlayer == inField[i].name)
+        if(pl == inField[i].name)
         {
 
             std::cout << "Bio" << "\n\n";
@@ -129,16 +130,4 @@ void Squad::viewPlayer(std::string &viewAPlayer)
                       << std::setw(17) << "Overall points : " << " " << std::setw(22) << inField[i].overall_points << '\n';
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-

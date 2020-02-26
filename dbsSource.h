@@ -57,7 +57,7 @@ public:
     std::string GetManager() const;
 
     void GetPlayers();
-    void viewPlayer(std::string &viewAPlayer);
+    void viewPlayer(std::string &pl);
 };
 
 

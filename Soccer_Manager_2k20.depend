@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1582033414 source:e:\project2\soccer-manager-2k20\gamefunc.cpp
+1582677755 source:e:\project2\soccer-manager-2k20\gamefunc.cpp
 	<iostream>
 	<string.h>
 	<stdio.h>
@@ -11,12 +11,13 @@
 	"dbsSource.h"
 	"dbsCreation.h"
 
-1582029111 e:\project2\soccer-manager-2k20\gamefunc.h
+1582677755 e:\project2\soccer-manager-2k20\gamefunc.h
 	<string>
 	<array>
 	<vector>
+	"dbsSource.h"
 
-1581981911 source:e:\project2\soccer-manager-2k20\main.cpp
+1582677755 source:e:\project2\soccer-manager-2k20\main.cpp
 	<iostream>
 	<windows.h>
 	"gameFunc.h"
@@ -643,15 +644,16 @@
 1581963418 d:\project2\soccer-manager-2k20\dbscreation.h
 	"dbsSource.h"
 
-1581938937 source:e:\project2\soccer-manager-2k20\dbssource.cpp
+1582677755 source:e:\project2\soccer-manager-2k20\dbssource.cpp
 	"dbsSource.h"
 	<iostream>
 	<iomanip>
+	<algorithm>
 
-1581958566 e:\project2\soccer-manager-2k20\dbssource.h
+1582677755 e:\project2\soccer-manager-2k20\dbssource.h
 	<iostream>
 	<vector>
 
-1581963418 e:\project2\soccer-manager-2k20\dbscreation.h
+1582677755 e:\project2\soccer-manager-2k20\dbscreation.h
 	"dbsSource.h"
 
