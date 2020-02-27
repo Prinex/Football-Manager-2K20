@@ -834,28 +834,3 @@
 	<string>
 	"gameFunc.h"
 
-1582803060 source:e:\football-manager-2k20\dbssource.cpp
-	"dbsSource.h"
-	<iostream>
-	<iomanip>
-	<algorithm>
-	<string>
-	<conio.h>
-	<windows.h>
-
-1582803019 e:\football-manager-2k20\dbssource.h
-	<iostream>
-	<vector>
-
-1582805093 source:e:\football-manager-2k20\main.cpp
-	<iostream>
-	<windows.h>
-	"gameFunc.h"
-
-1582805338 e:\football-manager-2k20\gamefunc.h
-	<string>
-	<array>
-	<vector>
-	"dbsSource.h"
-	"gameFunc.h"
-
