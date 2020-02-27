@@ -4,7 +4,6 @@
 #include <iostream>
 #include <vector>
 
-
 struct Players
 {
 public:

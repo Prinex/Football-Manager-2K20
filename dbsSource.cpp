@@ -3,11 +3,11 @@
 #include <iomanip>
 #include <algorithm>
 #include <string>
-
+#include <conio.h>
+#include <windows.h>
 /**
 *       Players class definiton
 */
-
 Players::Players(std::string name, int age, std::string nationality, int height, double weight, int number,  std::string position,
                  std::string morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
                  int diving, int handling, int skill_position, int overall_points) :
@@ -69,8 +69,6 @@ std::string Squad::GetManager() const
 
 void Squad::GetPlayers()
 {
-
-
     std::cout << "Infield players" << "\n\n";
     std::cout << std::setw(30) << "Name :" << std::setw(30) << "Position :" << "\n\n";
     for(unsigned int i = 0; i < inField.size(); i++)
@@ -84,17 +82,10 @@ void Squad::GetPlayers()
     {
         std::cout<< std::setw(30) << subs[i].name << std::setw(30) << subs[i].position << '\n';
     }
-    std::string player;
-    std::cin >> player;
-    system("cls");
-    viewPlayer(player);
 }
 
 void Squad::viewPlayer(std::string &pl)
 {
-
-    // BIO
-
     for (unsigned int i = 0; i < inField.size(); i++)
     {
         if(pl == inField[i].name)
@@ -128,6 +119,14 @@ void Squad::viewPlayer(std::string &pl)
                       << std::setw(17) << "Handling : " << " " << std::setw(22) << inField[i].weight
                       << std::setw(30) << "Skill position : " << " " << std::setw(22) << inField[i].skill_position << '\n'
                       << std::setw(17) << "Overall points : " << " " << std::setw(22) << inField[i].overall_points << '\n';
+        }
+    }
+    while (true)
+    {
+        if (GetAsyncKeyState(VK_ESCAPE) != 0)
+        {
+            system("cls");
+            GetPlayers();
         }
     }
 }

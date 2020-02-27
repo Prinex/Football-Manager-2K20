@@ -1,23 +1,24 @@
 # depslib dependency file v1.0
-1582677755 source:e:\project2\soccer-manager-2k20\gamefunc.cpp
+1582761006 source:e:\project2\soccer-manager-2k20\gamefunc.cpp
 	<iostream>
-	<string.h>
-	<stdio.h>
 	<windows.h>
+	<string>
+	<stdio.h>
 	<iomanip>
 	<stdlib.h>
-	<conio.h>
+	<time.h>
+	<chrono>
 	"gameFunc.h"
-	"dbsSource.h"
 	"dbsCreation.h"
 
-1582677755 e:\project2\soccer-manager-2k20\gamefunc.h
+1582805264 e:\project2\soccer-manager-2k20\gamefunc.h
 	<string>
 	<array>
 	<vector>
 	"dbsSource.h"
+	"gameFunc.h"
 
-1582677755 source:e:\project2\soccer-manager-2k20\main.cpp
+1582805093 source:e:\project2\soccer-manager-2k20\main.cpp
 	<iostream>
 	<windows.h>
 	"gameFunc.h"
@@ -608,7 +609,7 @@
 1581168460 e:\project2\soccer-manager-2k20\catch2\include\catch_with_main.hpp
 	"catch.hpp"
 
-1581968394 source:d:\project2\soccer-manager-2k20\gamefunc.cpp
+1582544088 source:d:\project2\soccer-manager-2k20\gamefunc.cpp
 	<iostream>
 	<string.h>
 	<stdio.h>
@@ -620,40 +621,241 @@
 	"dbsSource.h"
 	"dbsCreation.h"
 
-1582111103 d:\project2\soccer-manager-2k20\gamefunc.h
+1582544744 d:\project2\soccer-manager-2k20\gamefunc.h
 	<string>
 	<array>
 	<vector>
+	"dbsSource.h"
 
-1581981911 source:d:\project2\soccer-manager-2k20\main.cpp
+1582486705 source:d:\project2\soccer-manager-2k20\main.cpp
 	<iostream>
 	<windows.h>
 	"gameFunc.h"
 
 1581529929 source:e:\project2\soccer-manager-2k20\dbs.cpp
 
-1581938937 source:d:\project2\soccer-manager-2k20\dbssource.cpp
-	"dbsSource.h"
-	<iostream>
-	<iomanip>
-
-1581958566 d:\project2\soccer-manager-2k20\dbssource.h
-	<iostream>
-	<vector>
-
-1581963418 d:\project2\soccer-manager-2k20\dbscreation.h
-	"dbsSource.h"
-
-1582677755 source:e:\project2\soccer-manager-2k20\dbssource.cpp
+1582545980 source:d:\project2\soccer-manager-2k20\dbssource.cpp
 	"dbsSource.h"
 	<iostream>
 	<iomanip>
 	<algorithm>
 
-1582677755 e:\project2\soccer-manager-2k20\dbssource.h
+1582545447 d:\project2\soccer-manager-2k20\dbssource.h
 	<iostream>
 	<vector>
 
-1582677755 e:\project2\soccer-manager-2k20\dbscreation.h
+1582544428 d:\project2\soccer-manager-2k20\dbscreation.h
 	"dbsSource.h"
+
+1582803060 source:e:\project2\soccer-manager-2k20\dbssource.cpp
+	"dbsSource.h"
+	<iostream>
+	<iomanip>
+	<algorithm>
+	<string>
+	<conio.h>
+	<windows.h>
+
+1582803019 e:\project2\soccer-manager-2k20\dbssource.h
+	<iostream>
+	<vector>
+
+1582798029 e:\project2\soccer-manager-2k20\dbscreation.h
+	"dbsSource.h"
+
+1582634523 source:c:\users\songd\onedrive\desktop\soccer-manager-2k20\main.cpp
+	<iostream>
+	<windows.h>
+	"gameFunc.h"
+
+1582642919 c:\users\songd\onedrive\desktop\soccer-manager-2k20\gamefunc.h
+	<string>
+	<array>
+	<vector>
+	"dbsSource.h"
+
+1582624095 c:\users\songd\onedrive\desktop\soccer-manager-2k20\dbssource.h
+	<iostream>
+	<vector>
+
+1582651982 source:c:\users\songd\onedrive\desktop\soccer-manager-2k20\gamefunc.cpp
+	<iostream>
+	<windows.h>
+	<string.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+	"dbsSource.h"
+	"dbsCreation.h"
+
+1582568033 c:\users\songd\onedrive\desktop\soccer-manager-2k20\dbscreation.h
+	"dbsSource.h"
+
+1582678735 source:c:\users\songd\onedrive\desktop\soccer-manager-2k20\dbssource.cpp
+	"dbsSource.h"
+	<iostream>
+	<iomanip>
+	<algorithm>
+	<string>
+
+1582805146 source:e:\project2\soccer-manager-2k20\gamewindow.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+
+1582805145 source:e:\project2\soccer-manager-2k20\mainwindow.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+	"dbsCreation.h"
+
+1582759061 source:e:\project2\soccer-manager-2k20\simulation.cpp
+	<iostream>
+	<windows.h>
+	<string.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+
+1582763998 source:e:\project2\soccer-manager-2k20\user.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	"gameFunc.h"
+
+1582761688 source:e:\project2\soccer-manager-2k20\game.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+
+1582803060 source:e:\project2\football-manager-2k20\dbssource.cpp
+	"dbsSource.h"
+	<iostream>
+	<iomanip>
+	<algorithm>
+	<string>
+	<conio.h>
+	<windows.h>
+
+1582803019 e:\project2\football-manager-2k20\dbssource.h
+	<iostream>
+	<vector>
+
+1582761688 source:e:\project2\football-manager-2k20\game.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+
+1582805338 e:\project2\football-manager-2k20\gamefunc.h
+	<string>
+	<array>
+	<vector>
+	"dbsSource.h"
+	"gameFunc.h"
+
+1582805291 source:e:\project2\football-manager-2k20\gamewindow.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+
+1582805093 source:e:\project2\football-manager-2k20\main.cpp
+	<iostream>
+	<windows.h>
+	"gameFunc.h"
+
+1582805192 source:e:\project2\football-manager-2k20\mainwindow.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+	"dbsCreation.h"
+
+1582798029 e:\project2\football-manager-2k20\dbscreation.h
+	"dbsSource.h"
+
+1582759061 source:e:\project2\football-manager-2k20\simulation.cpp
+	<iostream>
+	<windows.h>
+	<string.h>
+	<string>
+	<stdio.h>
+	<iomanip>
+	<stdlib.h>
+	<time.h>
+	<chrono>
+	"gameFunc.h"
+
+1582805289 source:e:\project2\football-manager-2k20\user.cpp
+	<iostream>
+	<windows.h>
+	<string>
+	"gameFunc.h"
+
+1582803060 source:e:\football-manager-2k20\dbssource.cpp
+	"dbsSource.h"
+	<iostream>
+	<iomanip>
+	<algorithm>
+	<string>
+	<conio.h>
+	<windows.h>
+
+1582803019 e:\football-manager-2k20\dbssource.h
+	<iostream>
+	<vector>
+
+1582805093 source:e:\football-manager-2k20\main.cpp
+	<iostream>
+	<windows.h>
+	"gameFunc.h"
+
+1582805338 e:\football-manager-2k20\gamefunc.h
+	<string>
+	<array>
+	<vector>
+	"dbsSource.h"
+	"gameFunc.h"
 
