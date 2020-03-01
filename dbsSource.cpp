@@ -3,8 +3,12 @@
 #include <iomanip>
 #include <algorithm>
 #include <string>
-#include <conio.h>
 #include <windows.h>
+#include "gameFunc.h"
+
+
+
+
 /**
 *       Players class definiton
 */
@@ -67,28 +71,91 @@ std::string Squad::GetManager() const
     return manager;
 }
 
-void Squad::GetPlayers()
+
+
+bool Squad::GetPlayers()
 {
-    std::cout << "Infield players" << "\n\n";
-    std::cout << std::setw(30) << "Name :" << std::setw(30) << "Position :" << "\n\n";
+
+    std::vector<std::string> allPlayers;
     for(unsigned int i = 0; i < inField.size(); i++)
     {
-        std::cout << std::setw(30) << inField[i].name << std::setw(30) << inField[i].position << '\n';
+        allPlayers.push_back(inField[i].name);
     }
-
-    std::cout << "\n\n\n";
-    std::cout << "Substitutes" << "\n\n";
     for(unsigned int i = 0; i < subs.size(); i++)
     {
-        std::cout<< std::setw(30) << subs[i].name << std::setw(30) << subs[i].position << '\n';
+        allPlayers.push_back(subs[i].name);
+    }
+
+    int pointer = -1;
+
+    while(true)
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+        std::cout << initUser.GetSquad() << " players" << "\n\n\n";
+        std::cout << std::setw(30) << "Name :" << "\n\n\n";
+
+        for(signed int i = 0; i < signed(allPlayers.size()); i++)
+        {
+            if (i == pointer)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                std::cout << std::setw(30) << allPlayers[i] << '\n';
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << std::setw(30) << allPlayers[i] << '\n';
+            }
+        }
+        while(true)
+        {
+            if (GetAsyncKeyState(VK_UP) != 0 && pointer > -1)
+            {
+                pointer -= 1;
+                if (pointer == -1)
+                {
+                    pointer = allPlayers.size()-1;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_DOWN) != 0)
+            {
+                pointer += 1;
+
+                if (pointer == signed(allPlayers.size()))
+                {
+                    pointer = 0;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0)
+            {
+                for(signed int i = 0; i < signed(allPlayers.size()); i++)
+                {
+                    if (pointer == i)
+                    {
+                        viewPlayer(allPlayers[i]);
+                    }
+                }
+            }
+            else if (GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                MainWindow goTo;
+                return goTo.MainMenu();
+            }
+        }
+        Sleep(150);
     }
 }
 
-void Squad::viewPlayer(std::string &pl)
+bool Squad::viewPlayer(std::string &player)
 {
+    system("cls");
     for (unsigned int i = 0; i < inField.size(); i++)
     {
-        if(pl == inField[i].name)
+        if(player == inField[i].name || player == subs[i].name)
         {
 
             std::cout << "Bio" << "\n\n";
@@ -121,12 +188,12 @@ void Squad::viewPlayer(std::string &pl)
                       << std::setw(17) << "Overall points : " << " " << std::setw(22) << inField[i].overall_points << '\n';
         }
     }
-    while (true)
+    while(true)
     {
-        if (GetAsyncKeyState(VK_ESCAPE) != 0)
+        if(GetAsyncKeyState(VK_BACK) != 0)
         {
-            system("cls");
-            GetPlayers();
+            MainWindow goTo;
+            return goTo.ViewSquad();
         }
     }
 }

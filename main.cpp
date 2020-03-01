@@ -14,9 +14,9 @@ int main()
 
 
     GameWindow init;
-
     init.InitWindow();
 
 
     return 0;
 }
+

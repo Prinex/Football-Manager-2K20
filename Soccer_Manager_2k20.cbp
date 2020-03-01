@@ -42,6 +42,8 @@
 		<Unit filename="dbsSource.h" />
 		<Unit filename="gameFunc.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="unit-tests/catch.hpp" />
+		<Unit filename="unit-tests/mainwindow_tests.cpp" />
 		<Unit filename="utility.h" />
 		<Extensions>
 			<code_completion />

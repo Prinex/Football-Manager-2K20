@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <stdlib.h>
 
-
 #include <time.h>
 #include <chrono>
 
@@ -19,7 +18,6 @@
 */
 MainWindow::MainWindow()
 {
-    pressed = false;
     Options =
     {
         "Status",
@@ -33,12 +31,13 @@ MainWindow::MainWindow()
     };
 }
 
-void MainWindow::MainMenu()
+
+
+bool MainWindow::MainMenu()
 {
     int pointer = -1;
     while(true)
     {
-
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
@@ -94,7 +93,6 @@ void MainWindow::MainMenu()
                     case int(MenuOptions::UEFA):
                     {
                         system("cls");
-                        pressed = true;
                         while(true)
                         {
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
@@ -106,7 +104,6 @@ void MainWindow::MainMenu()
                     case int(MenuOptions::KickOff):
                     {
                         system("cls");
-                        pressed = true;
                         while(true)
                         {
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
@@ -118,8 +115,6 @@ void MainWindow::MainMenu()
                     case int(MenuOptions::BuyPlayer):
                     {
                         system("cls");
-                        pressed = true;
-
                         while(true)
                         {
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
@@ -131,7 +126,6 @@ void MainWindow::MainMenu()
                     case int(MenuOptions::SellPlayer):
                     {
                         system("cls");
-                        pressed = true;
                         while(true)
                         {
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
@@ -143,13 +137,12 @@ void MainWindow::MainMenu()
                     case int(MenuOptions::ViewSquad):
                     {
                         system("cls");
-                        pressed = true;
-                        ViewSquad();
+                        return ViewSquad();
                     }
                     case int(MenuOptions::SwitchPlayers):
                     {
                         system("cls");
-                        pressed = true;
+
                         while(true)
                         {
                             if(GetAsyncKeyState(VK_ESCAPE) != 0)
@@ -160,7 +153,6 @@ void MainWindow::MainMenu()
                     }
                     case int(MenuOptions::Exit):
                     {
-                        pressed = true;
                         exit(0);
                     }
                 }
@@ -170,9 +162,12 @@ void MainWindow::MainMenu()
     }
 }
 
-void MainWindow::ViewSquad()
+bool MainWindow::ViewSquad()
 {
-    if (initUser.GetSquad() == "F.C. Manchester United")
+    /**
+    *       Premier league
+    */
+    if (initUser.GetSquad() == "Manchester United F.C.")
     {
         Manchester.GetPlayers();
         std::cout << '\n';
@@ -187,21 +182,48 @@ void MainWindow::ViewSquad()
         Arsenal.GetPlayers();
         std::cout << '\n';
     }
-    else
+    else if(initUser.GetSquad() == "Chelsea F.C.")
     {
-        while(true)
+        Chelsea.GetPlayers();
+        std::cout << '\n';
+    }
+    else if(initUser.GetSquad() == "Tottenham Hotspur F.C.")
+    {
+        Tottenham.GetPlayers();
+        std::cout << '\n';
+    }
+    else if(initUser.GetSquad() == "Crystal Palace F.C.")
+    {
+        CrystalPalace.GetPlayers();
+        std::cout << '\n';
+    }
+    else if(initUser.GetSquad() == "Manchester City F.C.")
+    {
+        ManchesterCity.GetPlayers();
+        std::cout << '\n';
+    }
+    if(initUser.GetSquad() == "Leicester City F.C.")
+    {
+        Leicester.GetPlayers();
+        std::cout << '\n';
+    }
+    if(initUser.GetSquad() == "Everton F.C.")
+    {
+        Everton.GetPlayers();
+        std::cout << '\n';
+    }
+    while(true)
+    {
+
+        if(GetAsyncKeyState(VK_ESCAPE) != 0)
         {
-            if(GetAsyncKeyState(VK_ESCAPE) != 0)
-            {
-                MainMenu();
-            }
+            return MainMenu();
         }
     }
 }
 
-void MainWindow::Status()
+bool MainWindow::Status()
 {
-
     std::cout << std::setw(10) << "SQUAD : " << " " << std::setw(10) << initUser.GetSquad()  << "\n\n";
     std::cout << std::setw(10) << "LEAGUE : " << " " << std::setw(10) << initUser.GetLeague()  << "\n\n";
     std::cout << std::setw(10) << "COUNTRY : " << " " << std::setw(10) << initUser.GetCountry() << "\n\n";
@@ -211,7 +233,7 @@ void MainWindow::Status()
     {
         if(GetAsyncKeyState(VK_ESCAPE) != 0)
         {
-            MainMenu();
+            return MainMenu();
         }
     }
 }

@@ -12,7 +12,6 @@
 #include "gameFunc.h"
 
 
-
 /**
 *       Game window class defined
 */
@@ -70,6 +69,11 @@ void GameWindow::InitWindow()
         }
         system("CLS");
     }
+    std::string firstname, lastname;
+    std::cout << "Enter manager's first and last name : ";
+    std::cin >> firstname >> lastname;
+    initUser.SetUserName(firstname, lastname);
+
     InitSquad();
 }
 
@@ -713,7 +717,6 @@ void GameWindow::Laliga()
         }
         Sleep(150);
     }
-
 }
 
 void GameWindow::SegundaDiv()
@@ -893,6 +896,7 @@ void GameWindow::BL2()
 void GameWindow::PremierL()
 {
     MainWindow init;
+    std::string squad;
     int pointer = -1;
     while(true)
     {
@@ -948,22 +952,59 @@ void GameWindow::PremierL()
             {
                 switch(pointer)
                 {
-                    case int(PremierLgList::ManchesterU):
-                    {
-                        std::string setSquad = "F.C. Manchester United";
-                        initUser.SetSquad(setSquad);
-                        init.MainMenu();
-                    }
                     case int(PremierLgList::Liverpool):
                     {
-                        std::string setSquad = "Liverpool F.C.";
-                        initUser.SetSquad(setSquad);
+                        squad = "Liverpool F.C.";
+                        initUser.SetSquad(squad);
                         init.MainMenu();
                     }
+                    case int(PremierLgList::ManchesterU):
+                    {
+                        squad = "Manchester United F.C.";
+                        initUser.SetSquad(squad);
+                        init.MainMenu();
+                    }
+
                     case int(PremierLgList::Arsenal):
                     {
-                        std::string setSquad = "Arsenal F.C.";
-                        initUser.SetSquad(setSquad);
+                        squad = "Arsenal F.C.";
+                        initUser.SetSquad(squad);
+                        init.MainMenu();
+                    }
+                    case int(PremierLgList::Chelsea):
+                    {
+                        squad = "Chelsea F.C.";
+                        initUser.SetSquad(squad);
+                        init.MainMenu();
+                    }
+                    case int(PremierLgList::Tottenham):
+                    {
+                        squad = "Tottenham Hotspur F.C.";
+                        initUser.SetSquad(squad);
+                        init.MainMenu();
+                    }
+                    case int(PremierLgList::CrystalPalace):
+                    {
+                        squad = "Crystal Palace F.C.";
+                        initUser.SetSquad(squad);
+                        init.MainMenu();
+                    }
+                    case int(PremierLgList::Everton):
+                    {
+                        squad = "Everton F.C.";
+                        initUser.SetSquad(squad);
+                        init.MainMenu();
+                    }
+                    case int(PremierLgList::ManchesterC):
+                    {
+                        squad = "Manchester City F.C.";
+                        initUser.SetSquad(squad);
+                        init.MainMenu();
+                    }
+                    case int(PremierLgList::Leicester):
+                    {
+                        squad = "Leicester City F.C.";
+                        initUser.SetSquad(squad);
                         init.MainMenu();
                     }
                 }

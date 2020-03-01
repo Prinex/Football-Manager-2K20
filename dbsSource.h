@@ -50,14 +50,15 @@ private:
 
 public:
     Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs, int noInField, int noSub);
-
     std::string GetName() const;
     std::string GetLeague() const;
     std::string GetManager() const;
 
-    void GetPlayers();
-    void viewPlayer(std::string &pl);
+    bool GetPlayers();
+    bool viewPlayer(std::string &player);
 };
+
+
 
 
 

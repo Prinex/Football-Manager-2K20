@@ -203,7 +203,6 @@ private:
 
 public:
     GameWindow();
-    bool clearBuffer = false;
 
     void InitWindow();
     void InitSquad();
@@ -233,31 +232,32 @@ enum class MenuOptions{STATUS, UEFA, KickOff, BuyPlayer, SellPlayer, ViewSquad, 
 const int COUNT = 8;
 
 
+
+
+
+
 class MainWindow : public GameWindow
 {
 private:
-    bool pressed;
     std::array<std::string, COUNT> Options;
 
 public:
     MainWindow();
 
-    int clearBuffer = false;
 
-    void MainMenu();
-    void Status();
-    void KickOff();
+    bool MainMenu();
+    bool Status();
+    bool KickOff();
 
-    void UEFA();
+    bool UEFA();
 
-    void Transfers(std::string buy_option, std::string sell_option);
+    bool Transfers(std::string buy_option, std::string sell_option);
     bool BuyPlayer(std::string search_name);
     bool SellPlayer(std::string search_name, int amount);
 
-    void Squad(std::string view_option, std::string switch_option);
-    void ViewSquad();
+    bool Squad(std::string view_option, std::string switch_option);
+    bool ViewSquad();
     bool SwitchPlayer(std::string name);
-
 };
 
 
