@@ -32,6 +32,62 @@ MainWindow::MainWindow()
 }
 
 
+std::string MainWindow::generatePlayer(std::string squad)
+{
+    /**
+    *       Premier league
+    */
+    std::string player;
+    int random;
+
+    if(squad == "Liverpool F.C.")
+    {
+        random = rand() % LiverpoolInfield.size();
+        player = LiverpoolInfield[random].name;
+    }
+    else if (squad == "Manchester United F.C.")
+    {
+        random = rand() % ManchesterInfield.size();
+        player = ManchesterInfield[random].name;
+    }
+    else if(squad == "Arsenal F.C.")
+    {
+        random = rand() % ArsenalInfield.size();
+        player = ArsenalInfield[random].name;
+    }
+    else if(squad == "Chelsea F.C.")
+    {
+        random = rand() % ChelseaInfield.size();
+        player = ChelseaInfield[random].name;
+    }
+    else if(squad == "Tottenham Hotspur F.C.")
+    {
+        random = rand() % TottenhamInfield.size();
+        player = TottenhamInfield[random].name;
+    }
+    else if(squad == "Crystal Palace F.C.")
+    {
+        random = rand() % CrystalInfield.size();
+        player = CrystalInfield[random].name;
+    }
+    else if(squad == "Manchester City F.C.")
+    {
+        random = rand() % ManchesterCInfield.size();
+        player = ManchesterCInfield[random].name;
+    }
+    if(squad == "Leicester City F.C.")
+    {
+        random = rand() % LeicesterInfield.size();
+        player = LeicesterInfield[random].name;
+    }
+    if(squad == "Everton F.C.")
+    {
+        random = rand() % EvertonInfield.size();
+        player = EvertonInfield[random].name;
+    }
+    return player;
+
+}
 
 bool MainWindow::MainMenu()
 {
@@ -104,13 +160,7 @@ bool MainWindow::MainMenu()
                     case int(MenuOptions::KickOff):
                     {
                         system("cls");
-                        while(true)
-                        {
-                            if(GetAsyncKeyState(VK_ESCAPE) != 0)
-                            {
-                                MainMenu();
-                            }
-                        }
+                        KickOff();
                     }
                     case int(MenuOptions::BuyPlayer):
                     {
@@ -162,19 +212,66 @@ bool MainWindow::MainMenu()
     }
 }
 
+
+bool MainWindow::Status()
+{
+    std::cout << std::setw(10) << "SQUAD : " << " " << std::setw(10) << initUser.GetSquad()  << "\n\n";
+    std::cout << std::setw(10) << "LEAGUE : " << " " << std::setw(10) << initUser.GetLeague()  << "\n\n";
+    std::cout << std::setw(10) << "COUNTRY : " << " " << std::setw(10) << initUser.GetCountry() << "\n\n";
+    std::cout << std::setw(10) << "MANAGER : " << " " << std::setw(10) << initUser.GetUsername()  << "\n\n";
+
+    while(true)
+    {
+        if(GetAsyncKeyState(VK_ESCAPE) != 0)
+        {
+            return MainMenu();
+        }
+    }
+}
+
+
+
+bool MainWindow::KickOff()
+{
+    Game access;
+    access.SetStatus(GameStatus::PLAYING);
+
+    std::string randSquadB = generateSquad();
+    std::string randPlayerA = generatePlayer(initUser.GetSquad());
+    std::string randPlayerB = generatePlayer(randSquadB);
+
+    while (access.GetStatus() == GameStatus::PLAYING)
+    {
+        break;
+    }
+
+
+    while(true)
+    {
+        if(GetAsyncKeyState(VK_ESCAPE) != 0)
+        {
+            access.SetStatus(GameStatus::EXIT);
+            if(access.GetStatus() == GameStatus::EXIT)
+            {
+                MainMenu();
+            }
+        }
+    }
+}
+
 bool MainWindow::ViewSquad()
 {
     /**
     *       Premier league
     */
-    if (initUser.GetSquad() == "Manchester United F.C.")
-    {
-        Manchester.GetPlayers();
-        std::cout << '\n';
-    }
-    else if(initUser.GetSquad() == "Liverpool F.C.")
+    if(initUser.GetSquad() == "Liverpool F.C.")
     {
         Liverpool.GetPlayers();
+        std::cout << '\n';
+    }
+    else if (initUser.GetSquad() == "Manchester United F.C.")
+    {
+        Manchester.GetPlayers();
         std::cout << '\n';
     }
     else if(initUser.GetSquad() == "Arsenal F.C.")
@@ -214,7 +311,6 @@ bool MainWindow::ViewSquad()
     }
     while(true)
     {
-
         if(GetAsyncKeyState(VK_ESCAPE) != 0)
         {
             return MainMenu();
@@ -222,18 +318,4 @@ bool MainWindow::ViewSquad()
     }
 }
 
-bool MainWindow::Status()
-{
-    std::cout << std::setw(10) << "SQUAD : " << " " << std::setw(10) << initUser.GetSquad()  << "\n\n";
-    std::cout << std::setw(10) << "LEAGUE : " << " " << std::setw(10) << initUser.GetLeague()  << "\n\n";
-    std::cout << std::setw(10) << "COUNTRY : " << " " << std::setw(10) << initUser.GetCountry() << "\n\n";
-    std::cout << std::setw(10) << "MANAGER : " << " " << std::setw(10) << initUser.GetUsername()  << "\n\n";
 
-    while(true)
-    {
-        if(GetAsyncKeyState(VK_ESCAPE) != 0)
-        {
-            return MainMenu();
-        }
-    }
-}

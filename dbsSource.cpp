@@ -1,11 +1,9 @@
 #include "dbsSource.h"
 #include <iostream>
 #include <iomanip>
-#include <algorithm>
 #include <string>
 #include <windows.h>
 #include "gameFunc.h"
-
 
 
 
@@ -54,6 +52,8 @@ Squad::Squad(std::string squad_name, std::string league, std::string manager, st
     noSub(noSub)
 {
 }
+
+
 
 std::string Squad::GetName() const
 {
@@ -157,6 +157,7 @@ bool Squad::viewPlayer(std::string &player)
     {
         if(player == inField[i].name || player == subs[i].name)
         {
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
             std::cout << "Bio" << "\n\n";
 

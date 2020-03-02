@@ -5,7 +5,6 @@
 #include <array>
 #include <vector>
 
-#include "dbsSource.h"
 #include "gameFunc.h"
 
 
@@ -52,7 +51,7 @@ private:
 
 public:
     Game();
-    void Run();
+    static void Run();
 
     int GetTime1() const;
     void SetTime1(int setTime1);
@@ -70,10 +69,7 @@ public:
     void SetOpponentScore(int setOpponentScore);
 
     GameStatus GetStatus() const;
-    void SetStatus(GameStatus &setStatus);
-
-
-
+    void SetStatus(GameStatus setStatus);
 };
 
 
@@ -204,6 +200,10 @@ private:
 public:
     GameWindow();
 
+
+    std::string generateSquad();
+
+
     void InitWindow();
     void InitSquad();
     void ShowConsoleCursor(bool showFlag);
@@ -233,9 +233,6 @@ const int COUNT = 8;
 
 
 
-
-
-
 class MainWindow : public GameWindow
 {
 private:
@@ -244,18 +241,17 @@ private:
 public:
     MainWindow();
 
+    std::string generatePlayer(std::string squad);
 
     bool MainMenu();
     bool Status();
-    bool KickOff();
 
+    bool KickOff();
     bool UEFA();
 
-    bool Transfers(std::string buy_option, std::string sell_option);
-    bool BuyPlayer(std::string search_name);
+    bool BuyPlayer(std::string search_name, int amount);
     bool SellPlayer(std::string search_name, int amount);
 
-    bool Squad(std::string view_option, std::string switch_option);
     bool ViewSquad();
     bool SwitchPlayer(std::string name);
 };

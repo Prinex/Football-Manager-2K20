@@ -834,20 +834,19 @@
 	<string>
 	"gameFunc.h"
 
-1583059175 source:e:\football-manager-2k20\dbssource.cpp
+1583112951 source:e:\football-manager-2k20\dbssource.cpp
 	"dbsSource.h"
 	<iostream>
 	<iomanip>
-	<algorithm>
 	<string>
 	<windows.h>
 	"gameFunc.h"
 
-1583056672 e:\football-manager-2k20\dbssource.h
+1583108414 e:\football-manager-2k20\dbssource.h
 	<iostream>
 	<vector>
 
-1582761688 source:e:\football-manager-2k20\game.cpp
+1583089352 source:e:\football-manager-2k20\game.cpp
 	<iostream>
 	<windows.h>
 	<string>
@@ -858,14 +857,13 @@
 	<chrono>
 	"gameFunc.h"
 
-1583057153 e:\football-manager-2k20\gamefunc.h
+1583139420 e:\football-manager-2k20\gamefunc.h
 	<string>
 	<array>
 	<vector>
-	"dbsSource.h"
 	"gameFunc.h"
 
-1583029499 source:e:\football-manager-2k20\gamewindow.cpp
+1583108709 source:e:\football-manager-2k20\gamewindow.cpp
 	<iostream>
 	<windows.h>
 	<string>
@@ -876,12 +874,15 @@
 	<chrono>
 	"gameFunc.h"
 
-1582978105 source:e:\football-manager-2k20\main.cpp
+1583087519 source:e:\football-manager-2k20\main.cpp
 	<iostream>
 	<windows.h>
+	<ctime>
+	<cstdlib>
+	<stdexcept>
 	"gameFunc.h"
 
-1583059059 source:e:\football-manager-2k20\mainwindow.cpp
+1583139371 source:e:\football-manager-2k20\mainwindow.cpp
 	<iostream>
 	<windows.h>
 	<string>
@@ -893,10 +894,10 @@
 	"gameFunc.h"
 	"dbsCreation.h"
 
-1583022679 e:\football-manager-2k20\dbscreation.h
+1583139231 e:\football-manager-2k20\dbscreation.h
 	"dbsSource.h"
 
-1582759061 source:e:\football-manager-2k20\simulation.cpp
+1583093064 source:e:\football-manager-2k20\simulation.cpp
 	<iostream>
 	<windows.h>
 	<string.h>

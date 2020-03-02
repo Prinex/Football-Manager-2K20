@@ -36,6 +36,7 @@ public:
     Players(std::string name, int age, std::string nationality, int height, double weight, int number,  std::string position,
             std::string morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
             int diving, int handling, int skill_position, int overall_points);
+
 };
 
 
@@ -50,6 +51,8 @@ private:
 
 public:
     Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs, int noInField, int noSub);
+
+
     std::string GetName() const;
     std::string GetLeague() const;
     std::string GetManager() const;

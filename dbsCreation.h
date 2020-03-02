@@ -38,7 +38,6 @@ Squad Manchester("Manchester United F.C.", "Premier League", "Ole Gunnar Solskjæ
 
 
 
-
 /**
 *       Arsenal
 */
@@ -171,7 +170,7 @@ Squad Tottenham("Tottenham Hotspur F.C.", "Premier League", "José Mourinho", Tot
 /**
 *       Crystal Palace
 */
-std::vector<Players>CrsytalInfield
+std::vector<Players>CrystalInfield
 {
     {"W. Zaha",26,"Ivory Coast",180,66,11,"LS","GOOD",32000000,91,76,72,88,27,74,20,20,20,20,83},
     {"L. MilivojeviÄ‡",28,"Serbia",186,80,4,"RCM","GOOD",17500000,55,67,76,67,78,84,20,20,20,20,81},
@@ -186,7 +185,7 @@ std::vector<Players>CrsytalInfield
     {"J. Ward",29,"England",188,83,2,"RB","GOOD",3300000,58,52,66,66,76,71,20,20,20,20,73}
 
 };
-std::vector<Players>CrsytalSubs
+std::vector<Players>CrystalSubs
 {
     {"M. Sakho",29,"France",187,83,12,"SUB","GOOD",12000000,53,33,65,56,78,83,20,20,20,20,79},
     {"J. Tomkins",30,"England",192,74,5,"SUB","GOOD",8500000,41,32,57,54,80,75,20,20,20,20,78},
@@ -197,7 +196,7 @@ std::vector<Players>CrsytalSubs
     {"J. McCarthy",28,"Republic of Ireland",180,72,22,"SUB","GOOD",6000000,58,60,73,73,74,65,20,20,20,20,75}
 
 };
-Squad CrystalPalace("Crystal Palace F.C.", "Premier League", "Roy Hodgson", CrsytalInfield, CrsytalSubs, 11, 7);
+Squad CrystalPalace("Crystal Palace F.C.", "Premier League", "Roy Hodgson", CrystalInfield, CrystalSubs, 11, 7);
 
 
 /**

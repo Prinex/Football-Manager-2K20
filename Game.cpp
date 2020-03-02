@@ -77,8 +77,15 @@ GameStatus Game::GetStatus() const
     return status;
 }
 
-void Game::SetStatus(GameStatus &setStatus)
+void Game::SetStatus(GameStatus setStatus)
 {
     status = setStatus;
 }
+
+void Game::Run()
+{
+    GameWindow init;
+    init.InitWindow();
+}
+
 

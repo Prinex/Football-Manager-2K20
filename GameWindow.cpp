@@ -47,6 +47,21 @@ GameWindow::GameWindow()
     };
 }
 
+std::string GameWindow::generateSquad()
+{
+    std::string squad;
+    while(true)
+    {
+        int col = rand() % 8 + 0;
+        squad = select_squad[6][col];
+
+        if (squad != initUser.GetSquad())
+        {
+            break;
+        }
+    }
+    return squad;
+}
 
 
 void GameWindow::InitWindow()

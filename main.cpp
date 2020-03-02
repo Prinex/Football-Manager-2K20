@@ -1,20 +1,40 @@
 #include <iostream>
 #include <windows.h>
+#include <ctime>
+#include <cstdlib>
+#include <stdexcept>
 
 #include "gameFunc.h"
 
 
 
 
-
-
-
 int main()
 {
+    // seed
+    srand(time(nullptr));
 
+    try
+    {
+        Game game;
 
-    GameWindow init;
-    init.InitWindow();
+        if (game.GetStatus() == GameStatus::NONE)
+        {
+            game.Run();
+        }
+        else
+        {
+            throw std::runtime_error("Whilst trying to start the game.");
+        }
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "RUNTIME ERROR : " << e.what() << '\n';
+    }
+    catch (...)
+    {
+        std::cerr << "System error" << '\n';
+    }
 
 
     return 0;
