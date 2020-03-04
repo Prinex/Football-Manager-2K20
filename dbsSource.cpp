@@ -40,7 +40,7 @@ Players::Players(std::string name, int age, std::string nationality, int height,
 
 
 /**
-*       Players class definitions
+*       Squad class definitions
 */
 Squad::Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs, int noInField, int noSub) :
     squad_name{squad_name},
