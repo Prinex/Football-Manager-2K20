@@ -11,7 +11,7 @@
 
 class User
 {
-    private:
+private:
     std::string firstname, lastname, fullname;
     std::string country, league, squad;
 
