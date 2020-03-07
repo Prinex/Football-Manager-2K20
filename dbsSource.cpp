@@ -8,7 +8,7 @@
 
 
 /**
-*       Players class definiton
+*       Players class defined
 */
 Players::Players(std::string name, int age, std::string nationality, int height, double weight, int number,  std::string position,
                  std::string morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
