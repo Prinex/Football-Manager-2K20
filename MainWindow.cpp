@@ -14,7 +14,7 @@
 
 
 /**
-*       MainWindow class definitions
+*       MainWindow class defined
 */
 MainWindow::MainWindow()
 {
