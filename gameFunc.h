@@ -5,8 +5,6 @@
 #include <array>
 #include <vector>
 
-#include "gameFunc.h"
-
 
 
 class User
