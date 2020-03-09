@@ -5,9 +5,6 @@
 #include <iomanip>
 #include <stdlib.h>
 
-#include <time.h>
-#include <chrono>
-
 
 #include "gameFunc.h"
 #include "dbsCreation.h"
