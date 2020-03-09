@@ -6,9 +6,6 @@
 #include <stdlib.h>
 
 
-#include <time.h>
-#include <chrono>
-
 #include "gameFunc.h"
 
 
