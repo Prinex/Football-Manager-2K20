@@ -7,12 +7,9 @@
 #include "gameFunc.h"
 
 
-
-
 int main()
 {
-    // seed
-    srand(time(nullptr));
+    srand((unsigned int)time(nullptr));
 
     try
     {
@@ -35,8 +32,6 @@ int main()
     {
         std::cerr << "System error" << '\n';
     }
-
-
     return 0;
 }
 
