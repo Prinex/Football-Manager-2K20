@@ -36,7 +36,6 @@ public:
     Players(std::string name, int age, std::string nationality, int height, double weight, int number,  std::string position,
             std::string morale, int value, int pace, int shooting, int passing, int dribbling, int defending, int physical, int reflexes,
             int diving, int handling, int skill_position, int overall_points);
-
 };
 
 
@@ -58,7 +57,7 @@ public:
     std::string GetManager() const;
 
     bool GetPlayers();
-    bool viewPlayer(std::string &player);
+    bool viewPlayer(const std::string &player, std::vector<Players>& dst);
 };
 
 

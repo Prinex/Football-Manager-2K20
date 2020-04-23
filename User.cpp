@@ -9,7 +9,11 @@
 *       User class definiton
 */
 User::User()
+{}
+
+void User::SetUsername(std::string& fname, std::string& lname)
 {
+    fullname = fname + " " + lname;
 }
 
 std::string User::GetUsername() const
@@ -17,10 +21,6 @@ std::string User::GetUsername() const
     return fullname;
 }
 
-void User::SetUserName(std::string &fn, std::string &ln)
-{
-    fullname = fn + " " + ln;
-}
 
 std::string User::GetCountry() const
 {
@@ -52,5 +52,5 @@ void User::SetSquad(std::string &setSquad)
     squad = setSquad;
 }
 
-// deined user object
+// deined user objects 
 User initUser;

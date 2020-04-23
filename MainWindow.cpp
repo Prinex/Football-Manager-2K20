@@ -28,7 +28,6 @@ MainWindow::MainWindow()
     };
 }
 
-
 std::string MainWindow::generatePlayer(std::string squad)
 {
     /**
@@ -209,7 +208,6 @@ bool MainWindow::MainMenu()
     }
 }
 
-
 bool MainWindow::Status()
 {
     std::cout << std::setw(10) << "SQUAD : " << " " << std::setw(10) << initUser.GetSquad()  << "\n\n";
@@ -225,8 +223,6 @@ bool MainWindow::Status()
         }
     }
 }
-
-
 
 bool MainWindow::KickOff()
 {
@@ -315,4 +311,4 @@ bool MainWindow::ViewSquad()
     }
 }
 
-
+MainWindow mainWin;

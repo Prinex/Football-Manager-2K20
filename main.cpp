@@ -1,5 +1,4 @@
 #include <iostream>
-#include <windows.h>
 #include <ctime>
 #include <cstdlib>
 #include <stdexcept>
@@ -14,7 +13,6 @@ int main()
     try
     {
         Game game;
-
         if (game.GetStatus() == GameStatus::NONE)
         {
             game.Run();
@@ -26,12 +24,15 @@ int main()
     }
     catch (const std::exception& e)
     {
-        std::cerr << "RUNTIME ERROR : " << e.what() << '\n';
+        std::cerr << "RUNTIME ERROR : " << e.what() << std::endl;
+        
     }
     catch (...)
     {
-        std::cerr << "System error" << '\n';
+        std::cerr << "System error" << std::endl;
     }
+    std::cout << "Press any key to continue...  ";
+    std::cin.get();
     return 0;
 }
 

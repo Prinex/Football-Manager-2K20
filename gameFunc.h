@@ -5,19 +5,18 @@
 #include <array>
 #include <vector>
 
-
+// singleton pattern for all classes (initialized only once)
 
 class User
 {
 private:
-    std::string firstname, lastname, fullname;
+    std::string fullname;
     std::string country, league, squad;
 
 public:
     User();
-
+    void SetUsername(std::string& fname, std::string& lname);
     std::string GetUsername() const;
-    void SetUserName(std::string &fn, std::string &ln);
 
     std::string GetCountry() const;
     void SetCountry(std::string &setCountry);
@@ -27,13 +26,9 @@ public:
 
     std::string GetSquad() const;
     void SetSquad(std::string &setSquad);
-
-
 };
 
 extern User initUser;
-
-
 
 enum class GameStatus{NONE, PLAYING, WIN, LOSE, PAUSE, ABANDON, EXIT};
 
@@ -42,14 +37,15 @@ enum class GameStatus{NONE, PLAYING, WIN, LOSE, PAUSE, ABANDON, EXIT};
 class Game
 {
 private:
-    unsigned int total_time;
     unsigned int time1, time2;
     unsigned int your_score, opponent_score;
+    unsigned int total_time;
     GameStatus status;
 
 public:
     Game();
-    static void Run();
+ 
+    void Run();
 
     int GetTime1() const;
     void SetTime1(int setTime1);
@@ -70,6 +66,7 @@ public:
     void SetStatus(GameStatus setStatus);
 };
 
+extern Game game;
 
 
 
@@ -92,7 +89,6 @@ private:
 
 public:
     GameWindow();
-
 
     std::string generateSquad();
 
@@ -118,15 +114,15 @@ public:
     void Lig2();
 };
 
+extern GameWindow gameWin;
+
 
 enum class MenuOptions{STATUS, UEFA, KickOff, BuyPlayer, SellPlayer, ViewSquad, SwitchPlayers, Exit};
 
 
 const int COUNT = 8;
 
-
-
-class MainWindow : public GameWindow
+class MainWindow : protected GameWindow
 {
 private:
     std::array<std::string, COUNT> Options;
@@ -149,8 +145,7 @@ public:
     bool SwitchPlayer(std::string name);
 };
 
-
-
+extern MainWindow mainWin;
 
 
 #endif // GAMEFUNC_H_INCLUDED

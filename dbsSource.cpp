@@ -1,11 +1,11 @@
-#include "dbsSource.h"
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <windows.h>
+#include <algorithm>
+#include <vector>
 #include "gameFunc.h"
-
-
+#include "dbsSource.h"
 
 /**
 *       Players class defined
@@ -75,16 +75,12 @@ std::string Squad::GetManager() const
 
 bool Squad::GetPlayers()
 {
+    std::vector<Players> allPlayers;
+    allPlayers.reserve(inField.size() + subs.size());
 
-    std::vector<std::string> allPlayers;
-    for(unsigned int i = 0; i < inField.size(); i++)
-    {
-        allPlayers.push_back(inField[i].name);
-    }
-    for(unsigned int i = 0; i < subs.size(); i++)
-    {
-        allPlayers.push_back(subs[i].name);
-    }
+    std::copy(inField.begin(), inField.end(), std::back_inserter(allPlayers));
+    std::copy(subs.begin(), subs.end(), std::back_inserter(allPlayers));
+
 
     int pointer = -1;
 
@@ -96,17 +92,17 @@ bool Squad::GetPlayers()
         std::cout << initUser.GetSquad() << " players" << "\n\n\n";
         std::cout << std::setw(30) << "Name :" << "\n\n\n";
 
-        for(signed int i = 0; i < signed(allPlayers.size()); i++)
+        for(std::vector<Players>::iterator it = allPlayers.begin(); it != allPlayers.end(); it = next(it))
         {
-            if (i == pointer)
+            if (std::distance(allPlayers.begin(), it) == pointer)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-                std::cout << std::setw(30) << allPlayers[i] << '\n';
+                std::cout << std::setw(30) << (*it).name << '\n';
             }
             else
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-                std::cout << std::setw(30) << allPlayers[i] << '\n';
+                std::cout << std::setw(30) << (*it).name << '\n';
             }
         }
         while(true)
@@ -124,7 +120,7 @@ bool Squad::GetPlayers()
             {
                 pointer += 1;
 
-                if (pointer == signed(allPlayers.size()))
+                if (pointer == allPlayers.size())
                 {
                     pointer = 0;
                 }
@@ -132,69 +128,67 @@ bool Squad::GetPlayers()
             }
             else if (GetAsyncKeyState(VK_RETURN) != 0)
             {
-                for(signed int i = 0; i < signed(allPlayers.size()); i++)
+                for(std::vector<Players>::iterator it = allPlayers.begin(); it != allPlayers.end(); it = std::next(it))
                 {
-                    if (pointer == i)
+                    if (pointer == std::distance(allPlayers.begin(), it))
                     {
-                        viewPlayer(allPlayers[i]);
+                        viewPlayer((*it).name, allPlayers);
                     }
                 }
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
-                MainWindow goTo;
-                return goTo.MainMenu();
+                return mainWin.MainMenu();
             }
         }
         Sleep(150);
     }
 }
 
-bool Squad::viewPlayer(std::string &player)
+bool Squad::viewPlayer(const std::string &player, std::vector<Players>& dst)
 {
+
     system("cls");
-    for (unsigned int i = 0; i < inField.size(); i++)
+    for (std::vector<Players>::iterator it = dst.begin(); it != dst.end(); it = std::next(it))
     {
-        if(player == inField[i].name || player == subs[i].name)
+        if(player == (*it).name)
         {
             SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
             std::cout << "Bio" << "\n\n";
 
-            std::cout << std::setw(17) << "Name : " << " " << std::setw(22) << inField[i].name
-                      << std::setw(30) << "Age : "   << " " << std::setw(22) << inField[i].age << '\n'
-                      << std::setw(17) << "Nationality : " << " " << std::setw(22) << inField[i].nationality
-                      << std::setw(30) << "Height : " << " " << std::setw(22) << inField[i].height << '\n'
-                      << std::setw(17) << "Weight : " << " " << std::setw(22) << inField[i].weight
-                      << std::setw(30) << "Number : " << " " << std::setw(22) << inField[i].number << '\n'
-                      << std::setw(17) << "Position : " << " " << std::setw(22) << inField[i].position
-                      << std::setw(30) << "Morale : " << " " << std::setw(22) << inField[i].morale << '\n'
-                      << std::setw(17) << "Weight : " << " " << std::setw(22) << inField[i].weight
-                      << std::setw(30) << "Number : " << " " << std::setw(22) << inField[i].number << '\n'
-                      << std::setw(17) << "Value : " << " " << std::setw(22) << inField[i].value << "\n\n\n";
-
+            std::cout << std::setw(17) << "Name : " << " " << std::setw(22) << (*it).name
+                      << std::setw(30) << "Age : "   << " " << std::setw(22) << (*it).age << '\n'
+                      << std::setw(17) << "Nationality : " << " " << std::setw(22) << (*it).nationality
+                      << std::setw(30) << "Height : " << " " << std::setw(22) << (*it).height << '\n'
+                      << std::setw(17) << "Weight : " << " " << std::setw(22) << (*it).weight
+                      << std::setw(30) << "Number : " << " " << std::setw(22) << (*it).number << '\n'
+                      << std::setw(17) << "Position : " << " " << std::setw(22) << (*it).position
+                      << std::setw(30) << "Morale : " << " " << std::setw(22) << (*it).morale << '\n'
+                      << std::setw(17) << "Weight : " << " " << std::setw(22) << (*it).weight
+                      << std::setw(30) << "Number : " << " " << std::setw(22) << (*it).number << '\n'
+                      << std::setw(17) << "Value : " << " " << std::setw(22) << (*it).value << "\n\n\n";
 
             std::cout << "Skills" << "\n\n";
 
-            std::cout << std::setw(17) << "Pace : " << " " << std::setw(22) << inField[i].pace
-                      << std::setw(30) << "Shooting : " << " " << std::setw(22) << inField[i].shooting << '\n'
-                      << std::setw(17) << "Passing : " << " " << std::setw(22) << inField[i].dribbling
-                      << std::setw(30) << "Dribbling : " << " " << std::setw(22) << inField[i].dribbling << '\n'
-                      << std::setw(17) << "Defending : " << " " << std::setw(22) << inField[i].defending
-                      << std::setw(30) << "Physical : " << " " << std::setw(22) << inField[i].physical << '\n'
-                      << std::setw(17) << "Reflexes : " << " " << std::setw(22) << inField[i].reflexes
-                      << std::setw(30) << "Diving : " << " " << std::setw(22) << inField[i].diving << '\n'
-                      << std::setw(17) << "Handling : " << " " << std::setw(22) << inField[i].weight
-                      << std::setw(30) << "Skill position : " << " " << std::setw(22) << inField[i].skill_position << '\n'
-                      << std::setw(17) << "Overall points : " << " " << std::setw(22) << inField[i].overall_points << '\n';
+            std::cout << std::setw(17) << "Pace : " << " " << std::setw(22) << (*it).pace
+                      << std::setw(30) << "Shooting : " << " " << std::setw(22) << (*it).shooting << '\n'
+                      << std::setw(17) << "Passing : " << " " << std::setw(22) << (*it).dribbling
+                      << std::setw(30) << "Dribbling : " << " " << std::setw(22) << (*it).dribbling << '\n'
+                      << std::setw(17) << "Defending : " << " " << std::setw(22) << (*it).defending
+                      << std::setw(30) << "Physical : " << " " << std::setw(22) << (*it).physical << '\n'
+                      << std::setw(17) << "Reflexes : " << " " << std::setw(22) << (*it).reflexes
+                      << std::setw(30) << "Diving : " << " " << std::setw(22) << (*it).diving << '\n'
+                      << std::setw(17) << "Handling : " << " " << std::setw(22) << (*it).weight
+                      << std::setw(30) << "Skill position : " << " " << std::setw(22) << (*it).skill_position << '\n'
+                      << std::setw(17) << "Overall points : " << " " << std::setw(22) << (*it).overall_points << '\n';
         }
     }
     while(true)
     {
         if(GetAsyncKeyState(VK_BACK) != 0)
         {
-            MainWindow goTo;
-            return goTo.ViewSquad();
+            return mainWin.ViewSquad();
         }
     }
 }

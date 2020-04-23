@@ -16,16 +16,20 @@
 /**
 *       Game class defined
 */
-Game::Game():
-    total_time(0)
+Game::Game()
 {
     time1 = 0;
     time2 = 0;
     your_score = 0;
     opponent_score = 0;
+    total_time = 0;
     status = GameStatus::NONE;
 }
 
+void Game::Run()
+{
+    gameWin.InitWindow();
+}
 
 int Game::GetTime1() const
 {
@@ -82,10 +86,5 @@ void Game::SetStatus(GameStatus setStatus)
     status = setStatus;
 }
 
-void Game::Run()
-{
-    GameWindow init;
-    init.InitWindow();
-}
-
+Game game;
 

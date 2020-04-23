@@ -5,14 +5,13 @@
 #include <iomanip>
 #include <stdlib.h>
 
-
 #include "gameFunc.h"
 
 
 /**
 *       Game window class defined
 */
-GameWindow::GameWindow()
+GameWindow::GameWindow() 
 {
     select_country =
     {
@@ -60,7 +59,6 @@ std::string GameWindow::generateSquad()
     return squad;
 }
 
-
 void GameWindow::InitWindow()
 {
     SetConsoleTitleA("Soccer Manager 2k20.exe");
@@ -84,7 +82,8 @@ void GameWindow::InitWindow()
     std::string firstname, lastname;
     std::cout << "Enter manager's first and last name : ";
     std::cin >> firstname >> lastname;
-    initUser.SetUserName(firstname, lastname);
+    
+    initUser.SetUsername(firstname, lastname);
 
     InitSquad();
 }
@@ -145,24 +144,27 @@ void GameWindow::InitSquad()
                 {
                     case int(CountryOption::ITALY):
                     {
+                        initUser.SetCountry(select_country[pointer]);
                         Italy();
                     }
                     case int(CountryOption::SPAIN):
                     {
+                        initUser.SetCountry(select_country[pointer]);
                         Spain();
                     }
                     case int(CountryOption::GERMANY):
                     {
+                        initUser.SetCountry(select_country[pointer]);
                         Germany();
                     }
                     case int(CountryOption::ENGLAND):
                     {
-                        std::string setCountry = "England";
-                        initUser.SetCountry(setCountry);
+                        initUser.SetCountry(select_country[pointer]);
                         England();
                     }
                     case int(CountryOption::FRANCE):
                     {
+                        initUser.SetCountry(select_country[pointer]);
                         France();
                     }
                 }
@@ -470,8 +472,7 @@ void GameWindow::England()
                 {
                     case int(LeagueOption::Premier_League):
                     {
-                        std::string setLeague = "Premier League";
-                        initUser.SetLeague(setLeague);
+                        initUser.SetLeague(select_league[int(CountryOption::ENGLAND)][pointer]);
                         PremierL();
                     }
                 }
@@ -672,7 +673,6 @@ void GameWindow::SerieB()
     }
 
 }
-
 
 void GameWindow::Laliga()
 {
@@ -907,8 +907,6 @@ void GameWindow::BL2()
 
 void GameWindow::PremierL()
 {
-    MainWindow init;
-    std::string squad;
     int pointer = -1;
     while(true)
     {
@@ -940,7 +938,6 @@ void GameWindow::PremierL()
                 pointer -= 1;
                 if (pointer == -1)
                 {
-
                     pointer = 8;
                 }
                 break;
@@ -966,58 +963,49 @@ void GameWindow::PremierL()
                 {
                     case int(PremierLgList::Liverpool):
                     {
-                        squad = "Liverpool F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                     case int(PremierLgList::ManchesterU):
                     {
-                        squad = "Manchester United F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
 
                     case int(PremierLgList::Arsenal):
                     {
-                        squad = "Arsenal F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                     case int(PremierLgList::Chelsea):
                     {
-                        squad = "Chelsea F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                     case int(PremierLgList::Tottenham):
                     {
-                        squad = "Tottenham Hotspur F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                     case int(PremierLgList::CrystalPalace):
                     {
-                        squad = "Crystal Palace F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                     case int(PremierLgList::Everton):
                     {
-                        squad = "Everton F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                     case int(PremierLgList::ManchesterC):
                     {
-                        squad = "Manchester City F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                     case int(PremierLgList::Leicester):
                     {
-                        squad = "Leicester City F.C.";
-                        initUser.SetSquad(squad);
-                        init.MainMenu();
+                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin.MainMenu();
                     }
                 }
             }
@@ -1143,3 +1131,5 @@ void GameWindow::Lig2()
     }
 
 }
+
+GameWindow gameWin;
