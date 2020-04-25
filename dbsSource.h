@@ -45,19 +45,16 @@ private:
     std::string squad_name, league, manager;
     std::vector<Players> inField;
     std::vector<Players> subs;
-    int noInField, noSub;
-
 
 public:
-    Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs, int noInField, int noSub);
-
+    Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs);
 
     std::string GetName() const;
     std::string GetLeague() const;
     std::string GetManager() const;
 
     bool GetPlayers();
-    bool viewPlayer(const std::string &player, std::vector<Players>& dst);
+    bool viewPlayer(const std::string &player, std::vector<Players> &dst);
 };
 
 

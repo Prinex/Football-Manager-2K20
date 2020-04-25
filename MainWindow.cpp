@@ -210,10 +210,10 @@ bool MainWindow::MainMenu()
 
 bool MainWindow::Status()
 {
-    std::cout << std::setw(10) << "SQUAD : " << " " << std::setw(10) << initUser.GetSquad()  << "\n\n";
-    std::cout << std::setw(10) << "LEAGUE : " << " " << std::setw(10) << initUser.GetLeague()  << "\n\n";
-    std::cout << std::setw(10) << "COUNTRY : " << " " << std::setw(10) << initUser.GetCountry() << "\n\n";
-    std::cout << std::setw(10) << "MANAGER : " << " " << std::setw(10) << initUser.GetUsername()  << "\n\n";
+    std::cout << std::setw(10) << "SQUAD : " << " " << std::setw(10) << initUser->GetSquad()  << "\n\n";
+    std::cout << std::setw(10) << "LEAGUE : " << " " << std::setw(10) << initUser->GetLeague()  << "\n\n";
+    std::cout << std::setw(10) << "COUNTRY : " << " " << std::setw(10) << initUser->GetCountry() << "\n\n";
+    std::cout << std::setw(10) << "MANAGER : " << " " << std::setw(10) << initUser->GetUsername()  << "\n\n";
 
     while(true)
     {
@@ -230,7 +230,7 @@ bool MainWindow::KickOff()
     access.SetStatus(GameStatus::PLAYING);
 
     std::string randSquadB = generateSquad();
-    std::string randPlayerA = generatePlayer(initUser.GetSquad());
+    std::string randPlayerA = generatePlayer(initUser->GetSquad());
     std::string randPlayerB = generatePlayer(randSquadB);
 
     while (access.GetStatus() == GameStatus::PLAYING)
@@ -257,49 +257,49 @@ bool MainWindow::ViewSquad()
     /**
     *       Premier league
     */
-    if(initUser.GetSquad() == "Liverpool F.C.")
+    if(initUser->GetSquad() == "Liverpool F.C.")
     {
-        Liverpool.GetPlayers();
+        Liverpool->GetPlayers();
         std::cout << '\n';
     }
-    else if (initUser.GetSquad() == "Manchester United F.C.")
+    else if (initUser->GetSquad() == "Manchester United F.C.")
     {
-        Manchester.GetPlayers();
+        Manchester->GetPlayers();
         std::cout << '\n';
     }
-    else if(initUser.GetSquad() == "Arsenal F.C.")
+    else if(initUser->GetSquad() == "Arsenal F.C.")
     {
-        Arsenal.GetPlayers();
+        Arsenal->GetPlayers();
         std::cout << '\n';
     }
-    else if(initUser.GetSquad() == "Chelsea F.C.")
+    else if(initUser->GetSquad() == "Chelsea F.C.")
     {
-        Chelsea.GetPlayers();
+        Chelsea->GetPlayers();
         std::cout << '\n';
     }
-    else if(initUser.GetSquad() == "Tottenham Hotspur F.C.")
+    else if(initUser->GetSquad() == "Tottenham Hotspur F.C.")
     {
-        Tottenham.GetPlayers();
+        Tottenham->GetPlayers();
         std::cout << '\n';
     }
-    else if(initUser.GetSquad() == "Crystal Palace F.C.")
+    else if(initUser->GetSquad() == "Crystal Palace F.C.")
     {
-        CrystalPalace.GetPlayers();
+        CrystalPalace->GetPlayers();
         std::cout << '\n';
     }
-    else if(initUser.GetSquad() == "Manchester City F.C.")
+    else if(initUser->GetSquad() == "Manchester City F.C.")
     {
-        ManchesterCity.GetPlayers();
+        ManchesterCity->GetPlayers();
         std::cout << '\n';
     }
-    if(initUser.GetSquad() == "Leicester City F.C.")
+    if(initUser->GetSquad() == "Leicester City F.C.")
     {
-        Leicester.GetPlayers();
+        Leicester->GetPlayers();
         std::cout << '\n';
     }
-    if(initUser.GetSquad() == "Everton F.C.")
+    if(initUser->GetSquad() == "Everton F.C.")
     {
-        Everton.GetPlayers();
+        Everton->GetPlayers();
         std::cout << '\n';
     }
     while(true)
@@ -311,4 +311,4 @@ bool MainWindow::ViewSquad()
     }
 }
 
-MainWindow mainWin;
+std::shared_ptr<MainWindow> mainWin = std::make_shared<MainWindow>();

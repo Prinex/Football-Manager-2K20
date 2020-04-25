@@ -6,8 +6,6 @@
 #include <stdlib.h>
 
 
-#include <time.h>
-#include <chrono>
 
 #include "gameFunc.h"
 
@@ -28,7 +26,7 @@ Game::Game()
 
 void Game::Run()
 {
-    gameWin.InitWindow();
+    gameWin->InitWindow();
 }
 
 int Game::GetTime1() const
@@ -81,10 +79,10 @@ GameStatus Game::GetStatus() const
     return status;
 }
 
-void Game::SetStatus(GameStatus setStatus)
+void Game::SetStatus(GameStatus  setStatus)
 {
     status = setStatus;
 }
 
-Game game;
+std::shared_ptr<Game> game = std::make_shared<Game>();
 

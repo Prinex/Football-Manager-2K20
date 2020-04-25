@@ -11,7 +11,7 @@
 User::User()
 {}
 
-void User::SetUsername(std::string& fname, std::string& lname)
+void User::SetUsername(const std::string& fname, const std::string& lname)
 {
     fullname = fname + " " + lname;
 }
@@ -27,7 +27,7 @@ std::string User::GetCountry() const
     return country;
 }
 
-void User::SetCountry(std::string &setCountry)
+void User::SetCountry(const std::string &setCountry)
 {
     country = setCountry;
 }
@@ -37,7 +37,7 @@ std::string User::GetLeague() const
     return league;
 }
 
-void User::SetLeague(std::string &setLeague)
+void User::SetLeague(const std::string &setLeague)
 {
     league = setLeague;
 }
@@ -47,10 +47,10 @@ std::string User::GetSquad() const
     return squad;
 }
 
-void User::SetSquad(std::string &setSquad)
+void User::SetSquad(const std::string &setSquad)
 {
     squad = setSquad;
 }
 
 // deined user objects 
-User initUser;
+std::shared_ptr<User> initUser = std::make_shared<User>();

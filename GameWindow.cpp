@@ -51,7 +51,7 @@ std::string GameWindow::generateSquad()
         int col = rand() % 8 + 0;
         squad = select_squad[6][col];
 
-        if (squad != initUser.GetSquad())
+        if (squad != initUser->GetSquad())
         {
             break;
         }
@@ -83,7 +83,7 @@ void GameWindow::InitWindow()
     std::cout << "Enter manager's first and last name : ";
     std::cin >> firstname >> lastname;
     
-    initUser.SetUsername(firstname, lastname);
+    initUser->SetUsername(firstname, lastname);
 
     InitSquad();
 }
@@ -144,27 +144,27 @@ void GameWindow::InitSquad()
                 {
                     case int(CountryOption::ITALY):
                     {
-                        initUser.SetCountry(select_country[pointer]);
+                        initUser->SetCountry(select_country[pointer]);
                         Italy();
                     }
                     case int(CountryOption::SPAIN):
                     {
-                        initUser.SetCountry(select_country[pointer]);
+                        initUser->SetCountry(select_country[pointer]);
                         Spain();
                     }
                     case int(CountryOption::GERMANY):
                     {
-                        initUser.SetCountry(select_country[pointer]);
+                        initUser->SetCountry(select_country[pointer]);
                         Germany();
                     }
                     case int(CountryOption::ENGLAND):
                     {
-                        initUser.SetCountry(select_country[pointer]);
+                        initUser->SetCountry(select_country[pointer]);
                         England();
                     }
                     case int(CountryOption::FRANCE):
                     {
-                        initUser.SetCountry(select_country[pointer]);
+                        initUser->SetCountry(select_country[pointer]);
                         France();
                     }
                 }
@@ -472,7 +472,7 @@ void GameWindow::England()
                 {
                     case int(LeagueOption::Premier_League):
                     {
-                        initUser.SetLeague(select_league[int(CountryOption::ENGLAND)][pointer]);
+                        initUser->SetLeague(select_league[int(CountryOption::ENGLAND)][pointer]);
                         PremierL();
                     }
                 }
@@ -963,49 +963,49 @@ void GameWindow::PremierL()
                 {
                     case int(PremierLgList::Liverpool):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                     case int(PremierLgList::ManchesterU):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
 
                     case int(PremierLgList::Arsenal):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                     case int(PremierLgList::Chelsea):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                     case int(PremierLgList::Tottenham):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                     case int(PremierLgList::CrystalPalace):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                     case int(PremierLgList::Everton):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                     case int(PremierLgList::ManchesterC):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                     case int(PremierLgList::Leicester):
                     {
-                        initUser.SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
-                        mainWin.MainMenu();
+                        initUser->SetSquad(select_squad[int(CountryOption::ENGLAND)+3][pointer]);
+                        mainWin->MainMenu();
                     }
                 }
             }
@@ -1132,4 +1132,4 @@ void GameWindow::Lig2()
 
 }
 
-GameWindow gameWin;
+std::shared_ptr<GameWindow> gameWin = std::make_shared<GameWindow>();

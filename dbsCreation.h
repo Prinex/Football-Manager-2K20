@@ -33,7 +33,8 @@ std::vector<Players> ManchesterUSubs
     {"Fred",26,"Brazil",169,64,17,"SUB","GOOD",15000000,76,73,75,80,74,69,20,20,20,20,79},
     {"A. Young",33,"England",175,65,18,"SUB","GOOD",4000000,70,66,74,75,73,71,20,20,20,20,77}
 };
-Squad Manchester("Manchester United F.C.", "Premier League", "Ole Gunnar Solskjær", ManchesterInfield, ManchesterUSubs, 11, 7);
+std::shared_ptr<Squad> Manchester = std::make_shared<Squad>("Manchester United F.C.", "Premier League", "Ole Gunnar Solskjær", ManchesterInfield, ManchesterUSubs);
+
 
 
 
@@ -65,7 +66,7 @@ std::vector<Players> ArsenalSubs
     {"K. Tierney",22,"Scotland",178,78,3,"SUB","GOOD",11000000,88,59,70,74,71,81,20,20,20,20,76},
     {"R. Holding",23,"England",189,75,16,"SUB","GOOD",10000000,60,34,59,64,77,73,20,20,20,20,76}
 };
-Squad Arsenal("Arsenal F.C.", "Premier League", "Mikel Arteta", ArsenalInfield, ArsenalSubs, 11, 7);
+std::shared_ptr<Squad> Arsenal = std::make_shared<Squad>("Arsenal F.C.", "Premier League", "Mikel Arteta", ArsenalInfield, ArsenalSubs);
 
 
 
@@ -98,7 +99,7 @@ std::vector<Players> LiverpoolSubs
     {"D. Lovren",29,"Croatia",188,84,6,"SUB","GOOD",12500000,54,40,59,62,80,78,20,20,20,20,80},
     {"A. Lallana",31,"England",178,73,20,"SUB","GOOD",11000000,67,71,79,82,62,65,20,20,20,20,79}
 };
-Squad Liverpool("Liverpool F.C.", "Premier League", "Jürgen Klopp", LiverpoolInfield, LiverpoolSubs, 11, 7);
+std::shared_ptr<Squad> Liverpool = std::make_shared<Squad>("Liverpool F.C.", "Premier League", "Jürgen Klopp", LiverpoolInfield, LiverpoolSubs);
 
 
 
@@ -131,7 +132,7 @@ std::vector<Players>ChelseaSubs
     {"R. Barkley",25,"England",185,87,8,"SUB","GOOD",16000000,70,73,77,80,56,73,20,20,20,20,79}
 
 };
-Squad Chelsea("Chelsea F.C.", "Premier League", "Frank Lampard", ChelseaInfield, ChelseaSubs, 11, 7);
+std::shared_ptr<Squad> Chelsea = std::make_shared<Squad>("Chelsea F.C.", "Premier League", "Frank Lampard", ChelseaInfield, ChelseaSubs);
 
 
 /**
@@ -163,7 +164,7 @@ std::vector<Players>TottenhamSubs
     {"B. Davies",26,"Wales",182,76,33,"SUB","GOOD",13500000,73,58,75,75,78,74,20,20,20,20,79}
 
 };
-Squad Tottenham("Tottenham Hotspur F.C.", "Premier League", "José Mourinho", TottenhamInfield, TottenhamSubs, 11, 7);
+std::shared_ptr<Squad> Tottenham = std::make_shared<Squad>("Tottenham Hotspur F.C.", "Premier League", "José Mourinho", TottenhamInfield, TottenhamSubs);
 
 
 
@@ -194,9 +195,8 @@ std::vector<Players>CrystalSubs
     {"C. KouyatÃ©",29,"Senegal",189,83,8,"SUB","GOOD",6500000,69,65,61,69,76,85,20,20,20,20,76},
     {"W. Hennessey",32,"Wales",198,90,13,"SUB","GOOD",4000000,20,20,20,20,20,20,71,75,75,75,75},
     {"J. McCarthy",28,"Republic of Ireland",180,72,22,"SUB","GOOD",6000000,58,60,73,73,74,65,20,20,20,20,75}
-
 };
-Squad CrystalPalace("Crystal Palace F.C.", "Premier League", "Roy Hodgson", CrystalInfield, CrystalSubs, 11, 7);
+std::shared_ptr<Squad> CrystalPalace = std::make_shared<Squad>("Crystal Palace F.C.", "Premier League", "Roy Hodgson", CrystalInfield, CrystalSubs);
 
 
 /**
@@ -226,7 +226,7 @@ std::vector<Players>EvertonSubs
     {"C. Tosun",28,"Turkey",183,78,14,"SUB","GOOD",9000000,71,77,66,73,36,73,20,20,20,20,77},
     {"M. Kean",19,"Italy",182,79,27,"SUB","GOOD",14500000,81,72,50,77,30,68,20,20,20,20,76}
 };
-Squad Everton("Everton F.C.", "Premier League", "Carlo Ancelotti", EvertonInfield, EvertonSubs, 11, 7);
+std::shared_ptr<Squad> Everton = std::make_shared<Squad>("Everton F.C.", "Premier League", "Carlo Ancelotti", EvertonInfield, EvertonSubs);
 
 
 /**
@@ -245,7 +245,6 @@ std::vector<Players>ManchesterCInfield
     {"K. Walker",29,"England",183,70,2,"RB","GOOD",25500000,91,63,76,77,81,81,20,20,20,20,84},
     {"J. Stones",25,"England",188,70,5,"RCB","GOOD",30000000,68,36,70,72,84,77,20,20,20,20,83},
     {"O. Zinchenko",22,"Ukraine",175,64,11,"LB","GOOD",13000000,71,66,80,79,77,66,20,20,20,20,78}
-
 };
 std::vector<Players>ManchesterCSubs
 {
@@ -258,7 +257,7 @@ std::vector<Players>ManchesterCSubs
     {"Gabriel Jesus",22,"Brazil",175,73,9,"SUB","GOOD",31000000,85,80,72,86,39,71,20,20,20,20,82}
 
 };
-Squad ManchesterCity("Manchester City F.C.", "Premier League", "Pep Guardiola", ManchesterCInfield, ManchesterCSubs, 11, 7);
+std::shared_ptr<Squad> ManchesterCity = std::make_shared<Squad>("Manchester City F.C.", "Premier League", "Pep Guardiola", ManchesterCInfield, ManchesterCSubs);
 
 
 /**
@@ -287,9 +286,8 @@ std::vector<Players>LeicesterSubs
     {"D. Gray",23,"England",180,74,7,"SUB","GOOD",9000000,88,67,67,81,37,55,20,20,20,20,75},
     {"W. Morgan",35,"Jamaica",186,101,5,"SUB","GOOD",2000000,29,34,41,55,76,72,20,20,20,20,75},
     {"R. Ghezzal",27,"Algeria",182,70,31,"SUB","GOOD",6000000,72,68,74,78,28,58,20,20,20,20,74}
-
 };
-Squad Leicester("Leicester City F.C.", "Premier League", "Brendan Rodgers", LeicesterInfield, LeicesterSubs, 11, 7);
+std::shared_ptr<Squad> Leicester = std::make_shared<Squad>("Leicester City F.C.", "Premier League", "Brendan Rodgers", LeicesterInfield, LeicesterSubs);
 
 
 

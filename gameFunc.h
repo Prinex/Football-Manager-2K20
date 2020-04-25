@@ -15,20 +15,20 @@ private:
 
 public:
     User();
-    void SetUsername(std::string& fname, std::string& lname);
+    void SetUsername(const std::string& fname, const std::string& lname);
     std::string GetUsername() const;
 
     std::string GetCountry() const;
-    void SetCountry(std::string &setCountry);
+    void SetCountry(const std::string &setCountry);
 
     std::string GetLeague() const;
-    void SetLeague(std::string &setLeague);
+    void SetLeague(const std::string &setLeague);
 
     std::string GetSquad() const;
-    void SetSquad(std::string &setSquad);
+    void SetSquad(const std::string &setSquad);
 };
 
-extern User initUser;
+extern std::shared_ptr<User> initUser;
 
 enum class GameStatus{NONE, PLAYING, WIN, LOSE, PAUSE, ABANDON, EXIT};
 
@@ -66,7 +66,7 @@ public:
     void SetStatus(GameStatus setStatus);
 };
 
-extern Game game;
+extern std::shared_ptr<Game> game;
 
 
 
@@ -114,7 +114,7 @@ public:
     void Lig2();
 };
 
-extern GameWindow gameWin;
+extern std::shared_ptr<GameWindow> gameWin;
 
 
 enum class MenuOptions{STATUS, UEFA, KickOff, BuyPlayer, SellPlayer, ViewSquad, SwitchPlayers, Exit};
@@ -145,7 +145,7 @@ public:
     bool SwitchPlayer(std::string name);
 };
 
-extern MainWindow mainWin;
+extern std::shared_ptr<MainWindow> mainWin;
 
 
 #endif // GAMEFUNC_H_INCLUDED

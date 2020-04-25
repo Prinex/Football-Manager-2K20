@@ -42,14 +42,12 @@ Players::Players(std::string name, int age, std::string nationality, int height,
 /**
 *       Squad class definitions
 */
-Squad::Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs, int noInField, int noSub) :
+Squad::Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs) :
     squad_name{squad_name},
     league{league},
     manager{manager},
     inField{inField},
-    subs{subs},
-    noInField(noInField),
-    noSub(noSub)
+    subs{subs}
 {
 }
 
@@ -89,7 +87,7 @@ bool Squad::GetPlayers()
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-        std::cout << initUser.GetSquad() << " players" << "\n\n\n";
+        std::cout << initUser->GetSquad() << " players" << "\n\n\n";
         std::cout << std::setw(30) << "Name :" << "\n\n\n";
 
         for(std::vector<Players>::iterator it = allPlayers.begin(); it != allPlayers.end(); it = next(it))
@@ -138,14 +136,14 @@ bool Squad::GetPlayers()
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
-                return mainWin.MainMenu();
+                return mainWin->MainMenu();
             }
         }
         Sleep(150);
     }
 }
 
-bool Squad::viewPlayer(const std::string &player, std::vector<Players>& dst)
+bool Squad::viewPlayer(const std::string &player, std::vector<Players> &dst)
 {
 
     system("cls");
@@ -188,7 +186,7 @@ bool Squad::viewPlayer(const std::string &player, std::vector<Players>& dst)
     {
         if(GetAsyncKeyState(VK_BACK) != 0)
         {
-            return mainWin.ViewSquad();
+            return mainWin->ViewSquad();
         }
     }
 }
