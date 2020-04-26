@@ -2,6 +2,12 @@
 #define DBS2_H_INCLUDED
 
 #include "dbsSource.h"
+#include <vector>
+
+
+
+
+std::vector<std::shared_ptr<Squad>> allSquads;
 
 /**
 *           Premier league leagues
@@ -255,7 +261,6 @@ std::vector<Players>ManchesterCSubs
     {"R. Mahrez",28,"Algeria",179,67,26,"SUB","GOOD",31500000,84,78,79,89,38,59,20,20,20,20,84},
     {"N. Otamendi",31,"Argentina",183,81,30,"SUB","GOOD",19000000,56,57,63,59,83,78,20,20,20,20,83},
     {"Gabriel Jesus",22,"Brazil",175,73,9,"SUB","GOOD",31000000,85,80,72,86,39,71,20,20,20,20,82}
-
 };
 std::shared_ptr<Squad> ManchesterCity = std::make_shared<Squad>("Manchester City F.C.", "Premier League", "Pep Guardiola", ManchesterCInfield, ManchesterCSubs);
 

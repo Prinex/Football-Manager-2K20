@@ -37,10 +37,11 @@ GameWindow::GameWindow()
         {"Girona FC", "Granada CF", "Malaga CF"},
         {"FC Bayern Munich", "Borussia Dortmund", "FC Schalke", "FC Koln", "RB Leipzig"},
         {"VfB Stuttgart", "Hamburger SV", "FC Nurnberg", "Holstein Kiel"},
-        {"Liverpool F.C.", "Manchester United F.C.", "Arsenal F.C.", "Chelsea F.C.", "Tottenham Hotspur F.C.", "Crystal Palace F.C.", "Everton F.C.", "Manchester City", "Leicester City"},
+        {"Liverpool F.C.", "Manchester United F.C.", "Arsenal F.C.", "Chelsea F.C.", "Tottenham Hotspur F.C.", "Crystal Palace F.C.", "Everton F.C.", "Manchester City F.C.", "Leicester City F.C."},
         {"Paris-Saint-Germain F.C.", "FC Nantes", "As Monaco", "OGC Nice", "Toulouse FC"},
         {"Le Havre", "AS Nancy", "FC Lorient", "RC Lens"}
     };
+    
 }
 
 std::string GameWindow::generateSquad()

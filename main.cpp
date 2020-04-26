@@ -12,10 +12,9 @@ int main()
 
     try
     {
-        Game game;
-        if (game.GetStatus() == GameStatus::NONE)
+        if (game->GetStatus() == GameStatus::NONE)
         {
-            game.Run();
+            game->Run();
         }
         else
         {

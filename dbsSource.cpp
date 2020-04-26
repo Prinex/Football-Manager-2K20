@@ -7,6 +7,8 @@
 #include "gameFunc.h"
 #include "dbsSource.h"
 
+
+
 /**
 *       Players class defined
 */
@@ -87,11 +89,17 @@ bool Squad::GetPlayers()
         system("CLS");
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-        std::cout << initUser->GetSquad() << " players" << "\n\n\n";
-        std::cout << std::setw(30) << "Name :" << "\n\n\n";
+        std::cout << std::setw(30) << initUser->GetSquad() << " players" << "\n\n\n";
+        std::cout << "Infield :" << "\n\n\n";
 
         for(std::vector<Players>::iterator it = allPlayers.begin(); it != allPlayers.end(); it = next(it))
         {
+            if (std::distance(allPlayers.begin(), it) == 12)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << "\nSubstitutes :\n" << std::endl;
+            }
+
             if (std::distance(allPlayers.begin(), it) == pointer)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
@@ -105,6 +113,7 @@ bool Squad::GetPlayers()
         }
         while(true)
         {
+            
             if (GetAsyncKeyState(VK_UP) != 0 && pointer > -1)
             {
                 pointer -= 1;
@@ -187,6 +196,176 @@ bool Squad::viewPlayer(const std::string &player, std::vector<Players> &dst)
         if(GetAsyncKeyState(VK_BACK) != 0)
         {
             return mainWin->ViewSquad();
+        }
+    }
+}
+
+bool Squad::SelectInfield()
+{
+    int pointer = -1;
+
+    while (true)
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+        std::cout << "Select infield player for switching : " << "\n\n\n";
+        
+
+        for (std::vector<Players>::iterator it = inField.begin(); it != inField.end(); it = next(it))
+        {
+            if (std::distance(inField.begin(), it) == pointer)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                std::cout << std::setw(30) << (*it).name << '\n';
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << std::setw(30) << (*it).name << '\n';
+            }
+        }
+        while (true)
+        {
+
+            if (GetAsyncKeyState(VK_UP) != 0 && pointer > -1)
+            {
+                pointer -= 1;
+                if (pointer == -1)
+                {
+                    pointer = inField.size() - 1;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_DOWN) != 0)
+            {
+                pointer += 1;
+
+                if (pointer == inField.size())
+                {
+                    pointer = 0;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0)
+            {
+                for (std::vector<Players>::iterator it = inField.begin(); it != inField.end(); it = std::next(it))
+                {
+                    if (pointer == std::distance(inField.begin(), it))
+                    {
+                        SelectSubs(std::distance(inField.begin(), it));
+                    }
+                }
+            }
+            else if (GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                return mainWin->MainMenu();
+            }
+        }
+        Sleep(150);
+    }
+}
+
+bool Squad::SelectSubs(int inFieldPlayerIdx)
+{
+    int pointer = -1;
+
+    while (true)
+    {
+        system("CLS");
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+
+        std::cout << "Select infield player for switching : " << "\n\n\n";
+
+
+        for (std::vector<Players>::iterator it = subs.begin(); it != subs.end(); it = next(it))
+        {
+            if (std::distance(subs.begin(), it) == pointer)
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+                std::cout << std::setw(30) << (*it).name << '\n';
+            }
+            else
+            {
+                SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                std::cout << std::setw(30) << (*it).name << '\n';
+            }
+        }
+        while (true)
+        {
+
+            if (GetAsyncKeyState(VK_UP) != 0 && pointer > -1)
+            {
+                pointer -= 1;
+                if (pointer == -1)
+                {
+                    pointer = subs.size() - 1;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_DOWN) != 0)
+            {
+                pointer += 1;
+
+                if (pointer == subs.size())
+                {
+                    pointer = 0;
+                }
+                break;
+            }
+            else if (GetAsyncKeyState(VK_RETURN) != 0)
+            {
+                int subPlayerIdx = 0;
+                for (std::vector<Players>::iterator it = subs.begin(); it != subs.end(); it = std::next(it))
+                {
+                    if (pointer == std::distance(subs.begin(), it))
+                    {
+                        subPlayerIdx = std::distance(subs.begin(), it);
+                        SwapPlayer(inFieldPlayerIdx, subPlayerIdx);
+                    }
+                }
+            }
+            else if (GetAsyncKeyState(VK_ESCAPE) != 0)
+            {
+                return mainWin->MainMenu();
+            }
+        }
+        Sleep(150);
+    }
+}
+
+bool Squad::SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx)
+{
+    system("cls");
+
+    std::swap(inField[inFieldPlayerIdx].name, subs[subPlayerIdx].name);
+    std::swap(inField[inFieldPlayerIdx].age, subs[subPlayerIdx].age);
+    std::swap(inField[inFieldPlayerIdx].nationality, subs[subPlayerIdx].nationality);
+    std::swap(inField[inFieldPlayerIdx].height, subs[subPlayerIdx].height);
+    std::swap(inField[inFieldPlayerIdx].weight, subs[subPlayerIdx].weight);
+    std::swap(inField[inFieldPlayerIdx].number, subs[subPlayerIdx].number);
+    std::swap(inField[inFieldPlayerIdx].position, subs[subPlayerIdx].position);
+    std::swap(inField[inFieldPlayerIdx].morale, subs[subPlayerIdx].morale);
+    std::swap(inField[inFieldPlayerIdx].value, subs[subPlayerIdx].value);
+    std::swap(inField[inFieldPlayerIdx].pace, subs[subPlayerIdx].pace);
+    std::swap(inField[inFieldPlayerIdx].shooting, subs[subPlayerIdx].shooting);
+    std::swap(inField[inFieldPlayerIdx].passing, subs[subPlayerIdx].passing);
+    std::swap(inField[inFieldPlayerIdx].dribbling, subs[subPlayerIdx].dribbling);
+    std::swap(inField[inFieldPlayerIdx].defending, subs[subPlayerIdx].defending);
+    std::swap(inField[inFieldPlayerIdx].physical, subs[subPlayerIdx].physical);
+    std::swap(inField[inFieldPlayerIdx].reflexes, subs[subPlayerIdx].reflexes);
+    std::swap(inField[inFieldPlayerIdx].diving, subs[subPlayerIdx].diving);
+    std::swap(inField[inFieldPlayerIdx].handling, subs[subPlayerIdx].handling);
+    std::swap(inField[inFieldPlayerIdx].skill_position, subs[subPlayerIdx].skill_position);
+    std::swap(inField[inFieldPlayerIdx].overall_points, subs[subPlayerIdx].overall_points);
+
+    std::cout << inField[inFieldPlayerIdx].name << " has been switched with " << subs[subPlayerIdx].name << " successfully" << std::endl;
+
+    while (true)
+    {
+        if (GetAsyncKeyState(VK_BACK) != 0)
+        {
+            return mainWin->SwitchPlayer();
         }
     }
 }

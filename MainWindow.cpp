@@ -5,7 +5,6 @@
 #include <iomanip>
 #include <stdlib.h>
 
-
 #include "gameFunc.h"
 #include "dbsCreation.h"
 
@@ -26,6 +25,9 @@ MainWindow::MainWindow()
         "Switch Players",
         "Exit"
     };
+   
+    allSquads = { Manchester, Arsenal, Liverpool, Chelsea, Tottenham, CrystalPalace, Everton, ManchesterCity, Leicester };
+   
 }
 
 std::string MainWindow::generatePlayer(std::string squad)
@@ -95,7 +97,6 @@ bool MainWindow::MainMenu()
 
         for(int i = 0; i < COUNT; i++)
         {
-
             if (i == pointer)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
@@ -139,7 +140,7 @@ bool MainWindow::MainMenu()
                     case int(MenuOptions::STATUS):
                     {
                         system("cls");
-                        Status();
+                        return Status();
                     }
 
                     case int(MenuOptions::UEFA):
@@ -156,7 +157,7 @@ bool MainWindow::MainMenu()
                     case int(MenuOptions::KickOff):
                     {
                         system("cls");
-                        KickOff();
+                        return KickOff();
                     }
                     case int(MenuOptions::BuyPlayer):
                     {
@@ -188,14 +189,7 @@ bool MainWindow::MainMenu()
                     case int(MenuOptions::SwitchPlayers):
                     {
                         system("cls");
-
-                        while(true)
-                        {
-                            if(GetAsyncKeyState(VK_ESCAPE) != 0)
-                            {
-                                MainMenu();
-                            }
-                        }
+                        return SwitchPlayer();
                     }
                     case int(MenuOptions::Exit):
                     {
@@ -226,14 +220,13 @@ bool MainWindow::Status()
 
 bool MainWindow::KickOff()
 {
-    Game access;
-    access.SetStatus(GameStatus::PLAYING);
+    game->SetStatus(GameStatus::PLAYING);
 
     std::string randSquadB = generateSquad();
     std::string randPlayerA = generatePlayer(initUser->GetSquad());
     std::string randPlayerB = generatePlayer(randSquadB);
 
-    while (access.GetStatus() == GameStatus::PLAYING)
+    while (game->GetStatus() == GameStatus::PLAYING)
     {
         break;
     }
@@ -243,10 +236,10 @@ bool MainWindow::KickOff()
     {
         if(GetAsyncKeyState(VK_ESCAPE) != 0)
         {
-            access.SetStatus(GameStatus::EXIT);
-            if(access.GetStatus() == GameStatus::EXIT)
+            game->SetStatus(GameStatus::EXIT);
+            if(game->GetStatus() == GameStatus::EXIT)
             {
-                MainMenu();
+                return MainMenu();
             }
         }
     }
@@ -254,57 +247,34 @@ bool MainWindow::KickOff()
 
 bool MainWindow::ViewSquad()
 {
-    /**
-    *       Premier league
-    */
-    if(initUser->GetSquad() == "Liverpool F.C.")
+    for (auto it = allSquads.begin(); it != allSquads.end(); it = std::next(it))
     {
-        Liverpool->GetPlayers();
-        std::cout << '\n';
-    }
-    else if (initUser->GetSquad() == "Manchester United F.C.")
-    {
-        Manchester->GetPlayers();
-        std::cout << '\n';
-    }
-    else if(initUser->GetSquad() == "Arsenal F.C.")
-    {
-        Arsenal->GetPlayers();
-        std::cout << '\n';
-    }
-    else if(initUser->GetSquad() == "Chelsea F.C.")
-    {
-        Chelsea->GetPlayers();
-        std::cout << '\n';
-    }
-    else if(initUser->GetSquad() == "Tottenham Hotspur F.C.")
-    {
-        Tottenham->GetPlayers();
-        std::cout << '\n';
-    }
-    else if(initUser->GetSquad() == "Crystal Palace F.C.")
-    {
-        CrystalPalace->GetPlayers();
-        std::cout << '\n';
-    }
-    else if(initUser->GetSquad() == "Manchester City F.C.")
-    {
-        ManchesterCity->GetPlayers();
-        std::cout << '\n';
-    }
-    if(initUser->GetSquad() == "Leicester City F.C.")
-    {
-        Leicester->GetPlayers();
-        std::cout << '\n';
-    }
-    if(initUser->GetSquad() == "Everton F.C.")
-    {
-        Everton->GetPlayers();
-        std::cout << '\n';
+        if (initUser->GetSquad() == (*it)->GetName())
+        {
+            (*it)->GetPlayers();
+        }
     }
     while(true)
     {
         if(GetAsyncKeyState(VK_ESCAPE) != 0)
+        {
+            return MainMenu();
+        }
+    }
+}
+
+bool MainWindow::SwitchPlayer()
+{
+    for (auto it = allSquads.begin(); it != allSquads.end(); it = std::next(it))
+    {
+        if (initUser->GetSquad() == (*it)->GetName())
+        {
+            (*it)->SelectInfield();
+        }
+    }
+    while (true)
+    {
+        if (GetAsyncKeyState(VK_ESCAPE) != 0)
         {
             return MainMenu();
         }

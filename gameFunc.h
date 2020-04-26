@@ -5,6 +5,8 @@
 #include <array>
 #include <vector>
 
+
+
 // singleton pattern for all classes (initialized only once)
 
 class User
@@ -142,10 +144,11 @@ public:
     bool SellPlayer(std::string search_name, int amount);
 
     bool ViewSquad();
-    bool SwitchPlayer(std::string name);
+    bool SwitchPlayer();
 };
 
 extern std::shared_ptr<MainWindow> mainWin;
+
 
 
 #endif // GAMEFUNC_H_INCLUDED

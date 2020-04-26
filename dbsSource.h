@@ -4,6 +4,8 @@
 #include <iostream>
 #include <vector>
 
+
+
 struct Players
 {
 public:
@@ -48,23 +50,18 @@ private:
 
 public:
     Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs);
-
+    
+    std::vector<Squad> allSquads;
     std::string GetName() const;
     std::string GetLeague() const;
     std::string GetManager() const;
 
     bool GetPlayers();
     bool viewPlayer(const std::string &player, std::vector<Players> &dst);
+    bool SelectInfield();
+    bool SelectSubs(int inFieldPlayerIdx);
+    bool SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx);
 };
-
-
-
-
-
-
-
-
-
 
 
 #endif // DBS_H_INCLUDED
