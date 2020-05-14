@@ -7,6 +7,43 @@
 
 #include "gameFunc.h"
 
+// clrscr function declared
+void clrscr()
+{
+    HANDLE                     hStdOut;
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    DWORD                      count;
+    DWORD                      cellCount;
+    COORD                      homeCoords = { 0, 0 };
+
+    hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hStdOut == INVALID_HANDLE_VALUE) return;
+
+    /* Get the number of cells in the current buffer */
+    if (!GetConsoleScreenBufferInfo(hStdOut, &csbi)) return;
+    cellCount = csbi.dwSize.X * csbi.dwSize.Y;
+
+    /* Fill the entire buffer with spaces */
+    if (!FillConsoleOutputCharacter(
+        hStdOut,
+        (TCHAR)' ',
+        cellCount,
+        homeCoords,
+        &count
+    )) return;
+
+    /* Fill the entire buffer with the current colors and attributes */
+    if (!FillConsoleOutputAttribute(
+        hStdOut,
+        csbi.wAttributes,
+        cellCount,
+        homeCoords,
+        &count
+    )) return;
+
+    /* Move the cursor home */
+    SetConsoleCursorPosition(hStdOut, homeCoords);
+}
 
 /**
 *       Game window class defined
@@ -75,15 +112,14 @@ void GameWindow::InitWindow()
         for(int tick2 = 4; tick2 > 0; tick2--)
         {
             Sleep(550);
-            strcpy(effect, ".");
+            strcpy_s(effect, ".");
             std::cout << effect;
-        }
-        system("CLS");
+        } 
+        clrscr();
     }
     std::string firstname, lastname;
     std::cout << "Enter manager's first and last name : ";
     std::cin >> firstname >> lastname;
-    
     initUser->SetUsername(firstname, lastname);
 
     InitSquad();
@@ -95,24 +131,24 @@ void GameWindow::InitSquad()
     int pointer = -1;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a country: " << "\n\n";
-        for(int i = 0; i < SIZE1; i++)
+        for(auto it = select_country.begin(); it < select_country.end(); it = std::next(it))
         {
-            if (i == pointer)
+            if (std::distance(select_country.begin(), it) == pointer)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
                 std::cout << '\t';
                 std::cout << ">";
-                std::cout << select_country[i] << "\n\n";
+                std::cout << *it << "\n\n";
             }
             else
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
                 std::cout << ">";
                 std::cout << '\t';
-                std::cout << select_country[i] << "\n\n";
+                std::cout << *it << "\n\n";
             }
         }
         while(true)
@@ -132,7 +168,7 @@ void GameWindow::InitSquad()
             {
                 pointer += 1;
 
-                if (pointer == SIZE1)
+                if (pointer == select_country.size())
                 {
                     pointer = 0;
                 }
@@ -198,7 +234,7 @@ void GameWindow::Italy()
     while(true)
     {
 
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
         std::cout << "Choose a league: " << "\n\n";
@@ -272,7 +308,7 @@ void GameWindow::Spain()
     while(true)
     {
 
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a league: " << "\n\n";
 
@@ -346,7 +382,7 @@ void GameWindow::Germany()
     while(true)
     {
 
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a league: " << "\n\n";
 
@@ -419,7 +455,7 @@ void GameWindow::England()
     while(true)
     {
 
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a league: " << "\n\n";
 
@@ -489,7 +525,7 @@ void GameWindow::France()
     while(true)
     {
 
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a league: " << "\n\n";
 
@@ -564,7 +600,7 @@ void GameWindow::SerieA()
     int pointer = 0;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -622,7 +658,7 @@ void GameWindow::SerieB()
     int pointer = 0;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -680,7 +716,7 @@ void GameWindow::Laliga()
     int pointer = 0;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -737,7 +773,7 @@ void GameWindow::SegundaDiv()
     int pointer = 0;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -795,7 +831,7 @@ void GameWindow::BL()
     int pointer = 0;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -853,7 +889,7 @@ void GameWindow::BL2()
     int pointer = -1;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -911,7 +947,7 @@ void GameWindow::PremierL()
     int pointer = -1;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -1021,7 +1057,7 @@ void GameWindow::Lig1()
     int pointer = 0;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 
@@ -1080,7 +1116,7 @@ void GameWindow::Lig2()
     int pointer = 0;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
         std::cout << "Choose a squad: " << "\n\n";
 

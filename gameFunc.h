@@ -1,6 +1,8 @@
 #ifndef GAMEFUNC_H_INCLUDED
 #define GAMEFUNC_H_INCLUDED
 
+// #define clrscr() std::cout << "\033[2J\033[1;1H"
+
 #include <string>
 #include <array>
 #include <vector>
@@ -9,11 +11,15 @@
 
 // singleton pattern for all classes (initialized only once)
 
+
+void clrscr();
+
 class User
 {
 private:
     std::string fullname;
     std::string country, league, squad;
+    int budget;
 
 public:
     User();
@@ -40,8 +46,10 @@ class Game
 {
 private:
     unsigned int time1, time2;
-    unsigned int your_score, opponent_score;
     unsigned int total_time;
+    unsigned int your_score, opponent_score;
+    int penalty,cornerkick, offside, out, attempt, injury, foul, yellow, goal;
+    
     GameStatus status;
 
 public:
@@ -119,10 +127,10 @@ public:
 extern std::shared_ptr<GameWindow> gameWin;
 
 
-enum class MenuOptions{STATUS, UEFA, KickOff, BuyPlayer, SellPlayer, ViewSquad, SwitchPlayers, Exit};
+enum class MenuOptions{STATUS, KickOff, ViewSquad, SwitchPlayers, Exit};
 
 
-const int COUNT = 8;
+const int COUNT = 5;
 
 class MainWindow : protected GameWindow
 {
@@ -132,16 +140,10 @@ private:
 public:
     MainWindow();
 
-    std::string generatePlayer(std::string squad);
-
     bool MainMenu();
     bool Status();
 
     bool KickOff();
-    bool UEFA();
-
-    bool BuyPlayer(std::string search_name, int amount);
-    bool SellPlayer(std::string search_name, int amount);
 
     bool ViewSquad();
     bool SwitchPlayer();

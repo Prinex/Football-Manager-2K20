@@ -50,6 +50,7 @@ private:
 
 public:
     Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs);
+    Squad();
     
     std::vector<Squad> allSquads;
     std::string GetName() const;

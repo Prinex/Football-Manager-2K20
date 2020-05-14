@@ -2,6 +2,7 @@
 #include <windows.h>
 #include <string>
 #include <stdio.h>
+#include <conio.h>
 #include <iomanip>
 #include <stdlib.h>
 
@@ -17,74 +18,32 @@ MainWindow::MainWindow()
     Options =
     {
         "Status",
-        "UEFA",
         "Kick Off",
-        "Buy Player",
-        "Sell Player",
         "View Squad",
         "Switch Players",
         "Exit"
     };
    
     allSquads = { Manchester, Arsenal, Liverpool, Chelsea, Tottenham, CrystalPalace, Everton, ManchesterCity, Leicester };
-   
-}
 
-std::string MainWindow::generatePlayer(std::string squad)
-{
-    /**
-    *       Premier league
-    */
-    std::string player;
-    int random;
-
-    if(squad == "Liverpool F.C.")
-    {
-        random = rand() % LiverpoolInfield.size();
-        player = LiverpoolInfield[random].name;
-    }
-    else if (squad == "Manchester United F.C.")
-    {
-        random = rand() % ManchesterInfield.size();
-        player = ManchesterInfield[random].name;
-    }
-    else if(squad == "Arsenal F.C.")
-    {
-        random = rand() % ArsenalInfield.size();
-        player = ArsenalInfield[random].name;
-    }
-    else if(squad == "Chelsea F.C.")
-    {
-        random = rand() % ChelseaInfield.size();
-        player = ChelseaInfield[random].name;
-    }
-    else if(squad == "Tottenham Hotspur F.C.")
-    {
-        random = rand() % TottenhamInfield.size();
-        player = TottenhamInfield[random].name;
-    }
-    else if(squad == "Crystal Palace F.C.")
-    {
-        random = rand() % CrystalInfield.size();
-        player = CrystalInfield[random].name;
-    }
-    else if(squad == "Manchester City F.C.")
-    {
-        random = rand() % ManchesterCInfield.size();
-        player = ManchesterCInfield[random].name;
-    }
-    if(squad == "Leicester City F.C.")
-    {
-        random = rand() % LeicesterInfield.size();
-        player = LeicesterInfield[random].name;
-    }
-    if(squad == "Everton F.C.")
-    {
-        random = rand() % EvertonInfield.size();
-        player = EvertonInfield[random].name;
-    }
-    return player;
-
+    std::copy(ManchesterInfield.begin(), ManchesterInfield.end(), std::back_inserter(allPlayers));
+    std::copy(ManchesterUSubs.begin(), ManchesterUSubs.end(), std::back_inserter(allPlayers));
+    std::copy(ArsenalInfield.begin(), ArsenalInfield.end(), std::back_inserter(allPlayers));
+    std::copy(ArsenalSubs.begin(), ArsenalSubs.end(), std::back_inserter(allPlayers));
+    std::copy(LiverpoolInfield.begin(), LiverpoolInfield.end(), std::back_inserter(allPlayers));
+    std::copy(LiverpoolSubs.begin(), LiverpoolSubs.end(), std::back_inserter(allPlayers));
+    std::copy(ChelseaInfield.begin(), ChelseaInfield.end(), std::back_inserter(allPlayers));
+    std::copy(ChelseaSubs.begin(), ChelseaSubs.end(), std::back_inserter(allPlayers));
+    std::copy(TottenhamInfield.begin(), TottenhamInfield.end(), std::back_inserter(allPlayers));
+    std::copy(TottenhamSubs.begin(), TottenhamSubs.end(), std::back_inserter(allPlayers));
+    std::copy(CrystalInfield.begin(), CrystalInfield.end(), std::back_inserter(allPlayers));
+    std::copy(CrystalSubs.begin(), CrystalSubs.end(), std::back_inserter(allPlayers));
+    std::copy(EvertonInfield.begin(), EvertonInfield.end(), std::back_inserter(allPlayers));
+    std::copy(EvertonSubs.begin(), EvertonSubs.end(), std::back_inserter(allPlayers));
+    std::copy(ManchesterCInfield.begin(), ManchesterCInfield.end(), std::back_inserter(allPlayers));
+    std::copy(ManchesterCSubs.begin(), ManchesterCSubs.end(), std::back_inserter(allPlayers));
+    std::copy(LeicesterInfield.begin(), LeicesterInfield.end(), std::back_inserter(allPlayers));
+    std::copy(LeicesterSubs.begin(), LeicesterSubs.end(), std::back_inserter(allPlayers));   
 }
 
 bool MainWindow::MainMenu()
@@ -92,7 +51,7 @@ bool MainWindow::MainMenu()
     int pointer = -1;
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
         for(int i = 0; i < COUNT; i++)
@@ -117,7 +76,7 @@ bool MainWindow::MainMenu()
                 pointer -= 1;
                 if (pointer == -1)
                 {
-                    pointer = 7;
+                    pointer = 4;
                 }
                 break;
             }
@@ -134,61 +93,27 @@ bool MainWindow::MainMenu()
             }
             else if (GetAsyncKeyState(VK_RETURN) != 0)
             {
-
                 switch(pointer)
                 {
                     case int(MenuOptions::STATUS):
                     {
-                        system("cls");
+                        clrscr();
                         return Status();
-                    }
-
-                    case int(MenuOptions::UEFA):
-                    {
-                        system("cls");
-                        while(true)
-                        {
-                            if(GetAsyncKeyState(VK_ESCAPE) != 0)
-                            {
-                                MainMenu();
-                            }
-                        }
                     }
                     case int(MenuOptions::KickOff):
                     {
-                        system("cls");
+                        clrscr();
+                        game->SetStatus(GameStatus::PLAYING);
                         return KickOff();
-                    }
-                    case int(MenuOptions::BuyPlayer):
-                    {
-                        system("cls");
-                        while(true)
-                        {
-                            if(GetAsyncKeyState(VK_ESCAPE) != 0)
-                            {
-                                MainMenu();
-                            }
-                        }
-                    }
-                    case int(MenuOptions::SellPlayer):
-                    {
-                        system("cls");
-                        while(true)
-                        {
-                            if(GetAsyncKeyState(VK_ESCAPE) != 0)
-                            {
-                                MainMenu();
-                            }
-                        }
                     }
                     case int(MenuOptions::ViewSquad):
                     {
-                        system("cls");
+                        clrscr();
                         return ViewSquad();
                     }
                     case int(MenuOptions::SwitchPlayers):
                     {
-                        system("cls");
+                        clrscr();
                         return SwitchPlayer();
                     }
                     case int(MenuOptions::Exit):
@@ -220,12 +145,6 @@ bool MainWindow::Status()
 
 bool MainWindow::KickOff()
 {
-    game->SetStatus(GameStatus::PLAYING);
-
-    std::string randSquadB = generateSquad();
-    std::string randPlayerA = generatePlayer(initUser->GetSquad());
-    std::string randPlayerB = generatePlayer(randSquadB);
-
     while (game->GetStatus() == GameStatus::PLAYING)
     {
         break;

@@ -53,6 +53,8 @@ Squad::Squad(std::string squad_name, std::string league, std::string manager, st
 {
 }
 
+Squad::Squad()
+{}
 
 
 std::string Squad::GetName() const
@@ -62,7 +64,6 @@ std::string Squad::GetName() const
 
 std::string Squad::GetLeague() const
 {
-
     return league;
 }
 
@@ -86,7 +87,7 @@ bool Squad::GetPlayers()
 
     while(true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
         std::cout << std::setw(30) << initUser->GetSquad() << " players" << "\n\n\n";
@@ -94,7 +95,7 @@ bool Squad::GetPlayers()
 
         for(std::vector<Players>::iterator it = allPlayers.begin(); it != allPlayers.end(); it = next(it))
         {
-            if (std::distance(allPlayers.begin(), it) == 12)
+            if (std::distance(allPlayers.begin(), it) == 11)
             {
                 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
                 std::cout << "\nSubstitutes :\n" << std::endl;
@@ -154,8 +155,7 @@ bool Squad::GetPlayers()
 
 bool Squad::viewPlayer(const std::string &player, std::vector<Players> &dst)
 {
-
-    system("cls");
+    clrscr();
     for (std::vector<Players>::iterator it = dst.begin(); it != dst.end(); it = std::next(it))
     {
         if(player == (*it).name)
@@ -206,7 +206,7 @@ bool Squad::SelectInfield()
 
     while (true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
         std::cout << "Select infield player for switching : " << "\n\n\n";
@@ -272,10 +272,10 @@ bool Squad::SelectSubs(int inFieldPlayerIdx)
 
     while (true)
     {
-        system("CLS");
+        clrscr();
         SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 
-        std::cout << "Select infield player for switching : " << "\n\n\n";
+        std::cout << "Select substitute player for switching : " << "\n\n\n";
 
 
         for (std::vector<Players>::iterator it = subs.begin(); it != subs.end(); it = next(it))
@@ -336,7 +336,7 @@ bool Squad::SelectSubs(int inFieldPlayerIdx)
 
 bool Squad::SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx)
 {
-    system("cls");
+    clrscr();
 
     std::swap(inField[inFieldPlayerIdx].name, subs[subPlayerIdx].name);
     std::swap(inField[inFieldPlayerIdx].age, subs[subPlayerIdx].age);
@@ -359,6 +359,7 @@ bool Squad::SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx)
     std::swap(inField[inFieldPlayerIdx].skill_position, subs[subPlayerIdx].skill_position);
     std::swap(inField[inFieldPlayerIdx].overall_points, subs[subPlayerIdx].overall_points);
 
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
     std::cout << inField[inFieldPlayerIdx].name << " has been switched with " << subs[subPlayerIdx].name << " successfully" << std::endl;
 
     while (true)

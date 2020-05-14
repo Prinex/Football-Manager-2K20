@@ -8,6 +8,7 @@
 
 
 std::vector<std::shared_ptr<Squad>> allSquads;
+std::vector<Players> allPlayers;
 
 /**
 *           Premier league leagues
