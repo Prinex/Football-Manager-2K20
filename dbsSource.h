@@ -21,7 +21,7 @@ public:
     int value;
 
     //PLAYER SKILLS
-    int pace;
+    int pace;  
     int shooting;
     int passing;
     int dribbling;
@@ -45,6 +45,7 @@ class Squad
 {
 private:
     std::string squad_name, league, manager;
+public:
     std::vector<Players> inField;
     std::vector<Players> subs;
 
@@ -52,16 +53,16 @@ public:
     Squad(std::string squad_name, std::string league, std::string manager, std::vector<Players> &inField, std::vector<Players> &subs);
     Squad();
     
-    std::vector<Squad> allSquads;
     std::string GetName() const;
     std::string GetLeague() const;
     std::string GetManager() const;
 
-    bool GetPlayers();
-    bool viewPlayer(const std::string &player, std::vector<Players> &dst);
-    bool SelectInfield();
-    bool SelectSubs(int inFieldPlayerIdx);
-    bool SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx);
+
+    void GetPlayers();
+    void viewPlayer(const std::string &player, std::vector<Players> &dst);
+    void SelectInfield();
+    void SelectSubs(int inFieldPlayerIdx);
+    void SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx);
 };
 
 

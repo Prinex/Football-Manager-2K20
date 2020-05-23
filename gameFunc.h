@@ -19,7 +19,6 @@ class User
 private:
     std::string fullname;
     std::string country, league, squad;
-    int budget;
 
 public:
     User();
@@ -38,42 +37,28 @@ public:
 
 extern std::shared_ptr<User> initUser;
 
-enum class GameStatus{NONE, PLAYING, WIN, LOSE, PAUSE, ABANDON, EXIT};
+enum class GameStatus{NONE, PLAYING, WIN, LOSE, EXIT};
 
 
 
 class Game
 {
 private:
-    unsigned int time1, time2;
-    unsigned int total_time;
-    unsigned int your_score, opponent_score;
-    int penalty,cornerkick, offside, out, attempt, injury, foul, yellow, goal;
-    
     GameStatus status;
+    int gameTime, penalty, cornerkick, offside, out, attempt, injury, foul, yellow, red, goal;
+    int penalty1, cornerkick1, offside1, out1, attempt1, injury1, foul1, yellow1, red1, goal1;
 
 public:
     Game();
- 
-    void Run();
-
-    int GetTime1() const;
-    void SetTime1(int setTime1);
-
-    void SetTime2(int setTime2);
-    int GetTime2() const;
-
-    void SetTotalTime(int setTotalTime);
-    int GetTotalTime() const;
-
-    int GetYourScore() const;
-    void SetYourScore(int setYourScore);
-
-    int GetOpponentScore() const;
-    void SetOpponentScore(int setOpponentScore);
 
     GameStatus GetStatus() const;
     void SetStatus(GameStatus setStatus);
+        
+    void Simulate();
+    void ResetGame();
+    void gotoxy(short x, short y);
+    int GenerateSquad();
+    int GeneratePlayer();
 };
 
 extern std::shared_ptr<Game> game;
@@ -105,6 +90,7 @@ public:
 
     void InitWindow();
     void InitSquad();
+    
     void ShowConsoleCursor(bool showFlag);
 
     void Italy();
@@ -140,13 +126,13 @@ private:
 public:
     MainWindow();
 
-    bool MainMenu();
-    bool Status();
+    void MainMenu();
+    void Status();
 
-    bool KickOff();
+    void KickOff();
 
-    bool ViewSquad();
-    bool SwitchPlayer();
+    void ViewSquad();
+    void SwitchPlayer();
 };
 
 extern std::shared_ptr<MainWindow> mainWin;

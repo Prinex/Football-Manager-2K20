@@ -48,25 +48,24 @@ void clrscr()
 /**
 *       Game window class defined
 */
-GameWindow::GameWindow() 
-{
-    select_country =
+GameWindow::GameWindow() :
+    select_country 
     {
         "ITALY",
         "SPAIN",
         "GERMANY",
         "ENGLAND",
         "FRANCE"
-    };
-    select_league =
+    },
+    select_league 
     {
         {"SERIE A", "SERIE B"},
         {"LaLiga", "SegundaDivision"},
         {"Bundesliga", "Bundesliga 2"},
         {"Premier League"},
         {"Ligue 1", "Ligue 2"}
-    };
-    select_squad =
+    },
+    select_squad 
     {
         {"Juventus F.C.", "Inter Milan", "S.S.C. Napoli", "Atalanta B.C.", "A.C. Milan", "A.S. Roma", "ACF Fiorentina"},
         {"SS Lazio", "Benevento Calcio", "S.S.D. Palermo", "Delfino Pescara", "F.C. Crotone", "Torino F.C."},
@@ -77,25 +76,11 @@ GameWindow::GameWindow()
         {"Liverpool F.C.", "Manchester United F.C.", "Arsenal F.C.", "Chelsea F.C.", "Tottenham Hotspur F.C.", "Crystal Palace F.C.", "Everton F.C.", "Manchester City F.C.", "Leicester City F.C."},
         {"Paris-Saint-Germain F.C.", "FC Nantes", "As Monaco", "OGC Nice", "Toulouse FC"},
         {"Le Havre", "AS Nancy", "FC Lorient", "RC Lens"}
-    };
-    
-}
-
-std::string GameWindow::generateSquad()
-{
-    std::string squad;
-    while(true)
-    {
-        int col = rand() % 8 + 0;
-        squad = select_squad[6][col];
-
-        if (squad != initUser->GetSquad())
-        {
-            break;
-        }
     }
-    return squad;
+{
 }
+
+
 
 void GameWindow::InitWindow()
 {
@@ -213,6 +198,8 @@ void GameWindow::InitSquad()
     }
 
 }
+
+
 
 void GameWindow::ShowConsoleCursor(bool showFlag)
 {

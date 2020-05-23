@@ -74,7 +74,7 @@ std::string Squad::GetManager() const
 
 
 
-bool Squad::GetPlayers()
+void Squad::GetPlayers()
 {
     std::vector<Players> allPlayers;
     allPlayers.reserve(inField.size() + subs.size());
@@ -146,14 +146,14 @@ bool Squad::GetPlayers()
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
-                return mainWin->MainMenu();
+                mainWin->MainMenu();
             }
         }
         Sleep(150);
     }
 }
 
-bool Squad::viewPlayer(const std::string &player, std::vector<Players> &dst)
+void Squad::viewPlayer(const std::string &player, std::vector<Players> &dst)
 {
     clrscr();
     for (std::vector<Players>::iterator it = dst.begin(); it != dst.end(); it = std::next(it))
@@ -195,12 +195,12 @@ bool Squad::viewPlayer(const std::string &player, std::vector<Players> &dst)
     {
         if(GetAsyncKeyState(VK_BACK) != 0)
         {
-            return mainWin->ViewSquad();
+            mainWin->ViewSquad();
         }
     }
 }
 
-bool Squad::SelectInfield()
+void Squad::SelectInfield()
 {
     int pointer = -1;
 
@@ -259,14 +259,14 @@ bool Squad::SelectInfield()
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
-                return mainWin->MainMenu();
+                mainWin->MainMenu();
             }
         }
         Sleep(150);
     }
 }
 
-bool Squad::SelectSubs(int inFieldPlayerIdx)
+void Squad::SelectSubs(int inFieldPlayerIdx)
 {
     int pointer = -1;
 
@@ -327,14 +327,14 @@ bool Squad::SelectSubs(int inFieldPlayerIdx)
             }
             else if (GetAsyncKeyState(VK_ESCAPE) != 0)
             {
-                return mainWin->MainMenu();
+                mainWin->MainMenu();
             }
         }
         Sleep(150);
     }
 }
 
-bool Squad::SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx)
+void Squad::SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx)
 {
     clrscr();
 
@@ -366,7 +366,9 @@ bool Squad::SwapPlayer(int inFieldPlayerIdx, int subPlayerIdx)
     {
         if (GetAsyncKeyState(VK_BACK) != 0)
         {
-            return mainWin->SwitchPlayer();
+            mainWin->SwitchPlayer();
         }
     }
 }
+
+

@@ -14,7 +14,7 @@ int main()
     {
         if (game->GetStatus() == GameStatus::NONE)
         {
-            game->Run();
+            gameWin->InitWindow();
         }
         else
         {

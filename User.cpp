@@ -10,7 +10,6 @@
 */
 User::User()
 {
-    budget = 1000000000;
 }
 
 void User::SetUsername(const std::string& fname, const std::string& lname)
