@@ -1,1 +1,1 @@
-This is a demo for a text based game
+An improved University project : A text based game
