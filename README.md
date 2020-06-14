@@ -7,3 +7,10 @@ The game instruction are :
 -backspace to go back to a submenu
 
 -enter to select an option
+
+
+Improvements:
+
+-better dynamic allocation with smart pointers
+
+-reduced the amount of code
