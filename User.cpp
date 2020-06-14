@@ -6,7 +6,7 @@
 #include "gameFunc.h"
 
 /**
-*       User class definiton
+*       User class defined
 */
 User::User()
 {
