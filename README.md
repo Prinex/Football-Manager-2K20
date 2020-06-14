@@ -1,5 +1,3 @@
-An improved University project : A text based game
-
 Please run the Debug version from x64 file
 
 The game instruction are :
