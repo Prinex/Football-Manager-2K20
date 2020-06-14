@@ -7,3 +7,5 @@ The game instruction are :
 -use esc to go back to the main menu
 
 -backspace to go back to a submenu
+
+-enter to select an option
