@@ -8,14 +8,14 @@
 #include <conio.h>
 #include <consoleapi.h>
 
-#include "dbsSource.h"
-#include "gameFunc.h"
-#include "dbsCreation.h"
+#include "include/dbsSource.h"
+#include "include/gameFunc.h"
+#include "include/dbsCreation.h"
 
 
 /**
-*       MainWindow class defined
-*/
+ *       MainWindow class defined
+ */
 MainWindow::MainWindow() : 
     Options 
     {

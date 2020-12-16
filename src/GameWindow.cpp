@@ -4,8 +4,7 @@
 #include <stdio.h>
 #include <iomanip>
 #include <stdlib.h>
-
-#include "gameFunc.h"
+#include "include/gameFunc.h"
 
 // clrscr function declared
 void clrscr()
@@ -46,8 +45,8 @@ void clrscr()
 }
 
 /**
-*       Game window class defined
-*/
+ *  Game window class defined
+ */
 GameWindow::GameWindow() :
     select_country 
     {

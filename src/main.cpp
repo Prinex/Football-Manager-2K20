@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <stdexcept>
 
-#include "gameFunc.h"
+#include "include/gameFunc.h"
 
 
 int main()

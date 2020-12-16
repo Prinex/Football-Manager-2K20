@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <string>
 
-#include "gameFunc.h"
+#include "include/gameFunc.h"
 
 /**
 *       User class defined
