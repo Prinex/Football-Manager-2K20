@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <algorithm>
 #include <conio.h>
-#include <consoleapi.h>
 
 #include "include/dbsSource.h"
 #include "include/gameFunc.h"

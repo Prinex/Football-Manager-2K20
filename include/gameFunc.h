@@ -3,6 +3,8 @@
 
 // #define clrscr() std::cout << "\033[2J\033[1;1H"
 
+#include <iostream>
+#include <memory>
 #include <string>
 #include <array>
 #include <vector>

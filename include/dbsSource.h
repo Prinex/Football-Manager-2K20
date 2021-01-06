@@ -2,6 +2,7 @@
 #define DBS_H_INCLUDED
 
 #include <iostream>
+#include <memory>
 #include <vector>
 
 
