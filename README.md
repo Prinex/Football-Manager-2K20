@@ -26,7 +26,7 @@
 
 ![](/images/na.PNG) 
 ![](/images/squads.PNG)
-![](/images/
+
 
 * Viewing players
 
