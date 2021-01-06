@@ -29,11 +29,11 @@
 ![](/images/squads.PNG)
 
 
-* Viewing players
+* viewing players
 
 ![](/images/Capture.PNG)
 ![](/images/pl.PNG)
 
-* Gampeplay
+* gampeplay
 
 ![](/images/gameplay.PNG)
