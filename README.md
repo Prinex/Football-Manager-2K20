@@ -8,6 +8,7 @@
 * now you can run the project in VS
 
 2. If you choose MinGW Makefiles make sure you:
+* To run the project using mingw makfiles use 'run.sh' script file
 * have gcc installed, a recent version
 * if the output is positonated wrong when running from terminal, navigate to the directory where the .exe file is and execute it 
 
