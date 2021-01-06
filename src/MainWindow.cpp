@@ -120,6 +120,8 @@ void MainWindow::MainMenu()
                     }
                     case int(MenuOptions::Exit):
                     {
+                        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+                        clrscr();
                         exit(0);
                     }
                 }
