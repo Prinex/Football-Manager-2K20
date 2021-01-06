@@ -1,6 +1,6 @@
 ## You can choose to build the project for MinGW Makefiles or VS 16 2019
 
-- run the shell script by clicking on it or in a terminal
+- run the shell script files by clicking on them or using a terminal
 1. If you choose VS 16 2019 make sure to:
 * build the project's source files by selecting ALL_BUILD project in the solution explorer, right click on it 
   and select 'build'
