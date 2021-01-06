@@ -18,12 +18,12 @@
 
 ### Game instructions :
 
-*use esc to go back to the main menu
-*backspace to go back to a submenu
+* use esc to go back to the main menu
+* backspace to go back to a submenu
 * enter to select an option
 
 ### Some demos:
-* Choosing a sqaud according to a country
+* choosing a sqaud according to a country
 
 ![](/images/na.PNG) 
 ![](/images/squads.PNG)
