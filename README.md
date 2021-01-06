@@ -28,6 +28,9 @@
 ![](/images/na.PNG) 
 ![](/images/squads.PNG)
 
+* main menu
+
+![](/images/menu.PNG)
 
 * viewing players
 
