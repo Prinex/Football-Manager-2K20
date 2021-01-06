@@ -1,4 +1,4 @@
-#!/bin/command prompt
+#!/bin/sh
 
 cd build
 make

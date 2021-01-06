@@ -18,7 +18,6 @@ if [ $OPTION == 1 ]; then
 	cmake .. -G "Visual Studio 16 2019"
 elif [ $OPTION == 2 ]; then
 	cmake .. -G "MinGW Makefiles"
-	
 else
 	echo "Invalid option"
 fi
