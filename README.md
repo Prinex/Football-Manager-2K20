@@ -15,13 +15,14 @@
 -better dynamic allocation with smart pointers
 -using more stl
 
-### The game instruction are :
+### Game instructions :
 
 *use esc to go back to the main menu
 *backspace to go back to a submenu
 * enter to select an option
 
 ### Some demos:
-
-![](/images/na.PNG) ![](/images/squads.PNG)
+* Choosing a sqaud according to a country
+![](/images/na.PNG) 
+![](/images/squads.PNG)
 
