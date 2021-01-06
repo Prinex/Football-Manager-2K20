@@ -13,8 +13,8 @@
 * if the output is positonated wrong when running from terminal, navigate to the directory where the .exe file is and execute it 
 
 ### Improvements:
--better dynamic allocation with smart pointers
--using more stl
+* better dynamic allocation with smart pointers
+* using more stl
 
 ### Game instructions :
 
