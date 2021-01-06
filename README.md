@@ -33,3 +33,6 @@
 ![](/images/Capture.PNG)
 ![](/images/pl.PNG)
 
+* Gampeplay
+
+![](/images/gameplay.PNG)
