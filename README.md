@@ -30,5 +30,5 @@
 
 * Viewing players
 
-![](/images/Capture.png)
+![](/images/Capture.PNG)
 
