@@ -1,3 +1,6 @@
+## Notice:
+> This repository contains improvements of [4007CEM/Football-Manager2K20](https://github.com/4007CEM/Football-Manager-2K20).
+
 ## You can choose to build the project for MinGW Makefiles or VS 16 2019
 
 - run the shell script files by clicking on them or using a terminal
@@ -14,7 +17,9 @@
 
 ### Improvements:
 * better dynamic allocation with smart pointers
-* using more stl
+* using more of STL
+* automated compilation and running using a shell scripts
+* comiplation using cmake for MinGW MakeFiles or VS 2019 as mentioned above
 
 ### Game instructions :
 
