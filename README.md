@@ -13,7 +13,7 @@
 2. If you choose MinGW Makefiles make sure you:
 * run the project using mingw makfiles use 'run.sh' script file
 * have gcc installed, a recent version
-* .exe file is ran using the windows terminal, if not, the output will be displayed wrong, e.g., git terminal
+* run the .exe file is ran using the windows terminal, if not, the output will be displayed wrong, e.g., git terminal
 
 ### Improvements:
 * better dynamic allocation with smart pointers
