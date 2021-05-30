@@ -1,8 +1,11 @@
 
 ## Notice:
 > This repository contains improvements of [4007CEM/Football-Manager2K20](https://github.com/4007CEM/Football-Manager-2K20).
+>
 > A based-text game that simulates a match between two football clubs.
+> 
 > It is a game that has no graphics. 
+> 
 > It uses only the English language or any ASCII character.
 
 ## You can choose to build the project for MinGW Makefiles or VS 16 2019
