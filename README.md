@@ -33,7 +33,8 @@
 * Use 'backspace' key to go back to a submenu.
 * Use 'enter' to select an option.
 
-### UML interface plan:
+### UML - ERD interface plan:
+
 
 ![](/images/interface_plan.PNG)
 
