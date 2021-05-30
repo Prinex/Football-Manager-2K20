@@ -35,7 +35,7 @@
 
 ### UML - ERD interface plan:
 
-* We are using data structures to store players and football clubs as a "database".
+* We are using data structures to store players and football clubs as a "databases".
 
 ![](/images/interface_plan.PNG)
 
