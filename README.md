@@ -27,15 +27,15 @@
 * Automated compilation and running using shell scripts.
 * Comiplation using cmake for MinGW MakeFiles or VS 2019 as mentioned above.
 
-* UML interface plan:
-
-![](/images/interface_plan.PNG)
-
 ### Game instructions :
 
 * Use 'esc' key to go back to the main menu
 * Use 'backspace' key to go back to a submenu.
 * Use 'enter' to select an option.
+
+* UML interface plan:
+
+![](/images/interface_plan.PNG)
 
 ### Some demos:
 * Choosing a sqaud according to a country:
