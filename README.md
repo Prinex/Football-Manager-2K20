@@ -33,6 +33,10 @@
 * Use 'backspace' key to go back to a submenu.
 * Use 'enter' to select an option.
 
+* UML interface plan:
+
+![](/images/interface_plan.PNG)
+
 ### Some demos:
 * Choosing a sqaud according to a country:
 
