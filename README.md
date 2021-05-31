@@ -33,7 +33,7 @@
 * Use 'backspace' key to go back to a submenu.
 * Use 'enter' to select an option.
 
-### UML - ERD interface plan:
+### UML - class diagram interface plan:
 
 * We are using data structures to store players and football clubs as a "database".
 
