@@ -6,7 +6,7 @@
 > 
 > It is a game that has no graphics. 
 > 
-> It uses only the English language or any ASCII character.
+> It uses only the English language or/and any ASCII character.
 
 ## You can choose to build the project for MinGW Makefiles or VS 16 2019
 
