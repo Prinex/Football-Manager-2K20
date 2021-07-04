@@ -2,7 +2,6 @@
 
 cd build
 make
-cd ..
-cd ./bin
+cd ./bin/
 echo "Running..."
-./Football-Manager-2K20.exe
+start Football-Manager-2K20.exe

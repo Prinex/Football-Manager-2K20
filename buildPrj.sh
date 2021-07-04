@@ -2,7 +2,7 @@
 
 echo "Choose a build option: "
 echo "1. Build the project using VS 16 2019 x64"
-echo "2. Build the project using MinGW Makfiles"
+echo "2. Build the project using MinGW Makefiles"
 
 read OPTION
 
