@@ -7,12 +7,7 @@ project(Football-Manager-2K20)
 include_directories(${CMAKE_SOURCE_DIR})
 
 #directory for excutables
-file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
-
-#object files
-file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
-set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/bin)
 
 #compiling & list the header and source files in the solution explorer
 file(GLOB HEADERS "include/*.h")
