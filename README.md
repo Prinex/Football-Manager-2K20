@@ -38,23 +38,17 @@
 
 * We are using data structures to store players and football clubs as a "database".
 
-![](/images/interface_plan.PNG)
+![](/media/interface_plan.PNG)
 
 ### Some demos:
 * Choosing a sqaud according to a country:
 
-![](/images/na.PNG) 
-![](/images/squads.PNG)
+![](/media/select_squad.gif) 
 
-* The main menu:
+* Viewing user's status players' status:
 
-![](/images/menu.PNG)
-
-* Viewing players:
-
-![](/images/Capture.PNG)
-![](/images/pl.PNG)
+![](/media/status_and_players.gif)
 
 * Gampeplay:
 
-![](/images/gameplay.PNG)
+![](/media/gameplay.gif)
