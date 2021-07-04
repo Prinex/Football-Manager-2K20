@@ -17,9 +17,8 @@
 * Now you can run the project in VS.
 
 3. If you choose MinGW Makefiles make sure you:
-* Run the project using mingw makfiles use 'run.sh' script file.
+* Run the project using MinGW Makefiles use 'run.sh' script file.
 * Have gcc installed, a recent version.
-* Run the .exe file is ran using the windows terminal, if not, the output will be displayed wrong, e.g., git terminal.
 
 ### Improvements:
 * Better dynamic allocation using smart pointers.
@@ -32,6 +31,8 @@
 * Use 'esc' key to go back to the main menu
 * Use 'backspace' key to go back to a submenu.
 * Use 'enter' to select an option.
+* Use left and right key arrows to navigate the main menu
+* Use up and down key arrows to navigate the submenus
 
 ### UML - class diagram interface plan:
 
