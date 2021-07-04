@@ -49,6 +49,6 @@
 
 ![](/media/status_and_players.gif)
 
-* Gampeplay:
+* Short demo gameplay:
 
 ![](/media/gameplay.gif)
