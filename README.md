@@ -9,7 +9,7 @@
 > 
 > It uses only the English language or/and any ASCII character.
 >
-> Note that this is project will not work on UNIX-like systems because of the windows.h usage, which is working only on Windows
+> Note that this is project will not work on UNIX-like systems because of the windows.h usage, which is working only on Windows.
 
 ### Building and running the project:
 
@@ -20,7 +20,7 @@
 > You can simply run the run.sh script file, which will also run the buildPrj.sh script file for building and running the project.
 
 #### 1. If you choose your installed version of Visual Studio, and want to modify, run, and build the project using VS IDE, make sure you:
-* Generate the project using the buildPrj.sh script file
+* Generate the project using the buildPrj.sh script file.
 * Build and link the project's files by selecting ALL_BUILD project in the solution explorer of VS, right click on it, and select 'build'.
 * Select Football-Manager-2K20, right click on it and select 'Set as StartUp project'.
 
@@ -42,11 +42,11 @@
 
 ### Game instructions :
 
-* Use 'esc' key to go back to the main menu
+* Use 'esc' key to go back to the main menu.
 * Use 'backspace' key to go back to a submenu.
 * Use 'enter' to select an option.
-* Use left and right key arrows to navigate the main menu
-* Use up and down key arrows to navigate the submenus
+* Use left and right key arrows to navigate the main menu.
+* Use up and down key arrows to navigate the submenus.
 
 ### UML - class diagram interface plan:
 
