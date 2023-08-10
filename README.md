@@ -7,6 +7,8 @@
 > It is a game that has no graphics. 
 > 
 > It uses only the English language or/and any ASCII character.
+>
+> Note that this is project is not really meant to be working on UNIX-like systems because of the windows.h usage which is working only on Windows
 
 ## You can choose to build the project for MinGW Makefiles or VS 16 2019
 
