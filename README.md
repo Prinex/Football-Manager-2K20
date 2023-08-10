@@ -1,6 +1,6 @@
 
 
-## Notice:
+### Background:
 > This repository contains improvements of [4007CEM/Football-Manager2K20](https://github.com/4007CEM/Football-Manager-2K20).
 >
 > A based-text game that simulates a match between two football clubs.
@@ -13,7 +13,7 @@
 
 ### Building and running the project:
 
-> You can choose to build the project for MinGW Makefiles or an installed version of VS Visual Studio
+> You can choose to build the project for MinGW Makefiles or an installed version of VS Visual Studio.
 >
 > Shell script files have been prodived to build and run the project for you.
 >
