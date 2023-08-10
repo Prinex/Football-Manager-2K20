@@ -1,4 +1,5 @@
 
+
 ## Notice:
 > This repository contains improvements of [4007CEM/Football-Manager2K20](https://github.com/4007CEM/Football-Manager-2K20).
 >
@@ -8,19 +9,22 @@
 > 
 > It uses only the English language or/and any ASCII character.
 >
-> Note that this is project is not really meant to be working on UNIX-like systems because of the windows.h usage which is working only on Windows
+> Note that this is project will not work on UNIX-like systems because of the windows.h usage, which is working only on Windows
 
-## You can choose to build the project for MinGW Makefiles or VS 16 2019
+## You can choose to build the project for MinGW Makefiles or an installed version of VS Visual Studio
 
-- run the shell script files by clicking on them or using a terminal
-1. If you choose VS 16 2019, after generating the project's solution, make sure you:
-* Build the project's source files by selecting ALL_BUILD project in the solution explorer of VS, right click on it, and select 'build'.
+> Shell script files have been prodived to build and run the project for you.
+> You can simply run the run.sh script file, which will also run the buildPrj.sh script file for building and running the project. 
+1. If you choose VS 16 2019, and want to modify, run, and build the project using VS IDE, make sure you:
+* Generate the project using the buildPrj.sh script file
+* Build and link the project's files by selecting ALL_BUILD project in the solution explorer of VS, right click on it, and select 'build'.
 * Select Football-Manager-2K20, right click on it and select 'Set as StartUp project'.
-* Now you can run the project in VS.
+* Now you can modify, build, and run the project in VS IDE.
 
-3. If you choose MinGW Makefiles make sure you:
-* Run the project using MinGW Makefiles use 'run.sh' script file.
+2. If you choose MinGW Makefiles make sure you:
 * Have gcc installed, a recent version.
+* Run the run.sh script file, which will also run the buildPrj.sh script file for building and running the project using MinGW Makefiles.
+
 
 ### Improvements:
 * Better dynamic allocation using smart pointers.
