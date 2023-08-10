@@ -19,7 +19,7 @@
 >
 > You can simply run the run.sh script file, which will also run the buildPrj.sh script file for building and running the project.
 
-#### 1. If you choose your installed version of Visual Studio, and want to modify, run, and build the project using VS IDE, make sure you:
+#### 1. If you choose your installed version of Visual Studio, and just want to modify, run, and build the project using VS IDE, make sure you:
 * Generate the project using the buildPrj.sh script file.
 * Build and link the project's files by selecting ALL_BUILD project in the solution explorer of VS, right click on it, and select 'build'.
 * Select Football-Manager-2K20, right click on it and select 'Set as StartUp project'.
