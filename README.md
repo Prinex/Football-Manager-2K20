@@ -9,7 +9,7 @@
 > 
 > It uses only the English language or/and any ASCII character.
 >
-> Note that this is project will not work on UNIX-like systems because of the windows.h usage, which is working only on Windows.
+> Note that, this is project will not work on UNIX-like systems because of the windows.h usage, which is working only on Windows.
 
 ### Building and running the project:
 
