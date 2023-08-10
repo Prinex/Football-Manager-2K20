@@ -13,7 +13,7 @@
 
 ### Building and running the project:
 
-> You can choose to build the project for MinGW Makefiles or an installed version of VS Visual Studio.
+> You can choose to build the project with MinGW Makefiles or with an installed version of VS Visual Studio.
 >
 > Shell script files have been prodived to build and run the project for you.
 >
