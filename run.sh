@@ -1,5 +1,7 @@
 #!/bin/sh
 
+./buildPrj.sh
+
 cd build
 make
 cd ./bin/
