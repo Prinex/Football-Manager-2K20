@@ -19,7 +19,6 @@
 * Generate the project using the buildPrj.sh script file
 * Build and link the project's files by selecting ALL_BUILD project in the solution explorer of VS, right click on it, and select 'build'.
 * Select Football-Manager-2K20, right click on it and select 'Set as StartUp project'.
-* Now you can modify, build, and run the project in VS IDE.
 
 2. If you choose MinGW Makefiles make sure you:
 * Have gcc installed, a recent version.
