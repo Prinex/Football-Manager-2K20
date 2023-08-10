@@ -25,7 +25,7 @@
 #### 2. If you choose your installed version of Visual Studio, and want just to build and run the project, run the run.sh script file.
 
 #### 3. If you want to build and run the project with a different version of Visual Studio, make sure you:
-* Change the version number and year version from the build.sh script file, e.g. from `cmake .. -G "Visual Studio 17 2022"` to `cmake .. -G "Visual Studio 16 2019"`.
+* Change the version number and year version from the build.sh script file, e.g. from `cmake .. -G "Visual Studio 16 2019"` to `cmake .. -G "Visual Studio 17 2022"`.
 
 #### 4. If you choose MinGW Makefiles make sure you:
 * Have gcc installed, a recent version.
