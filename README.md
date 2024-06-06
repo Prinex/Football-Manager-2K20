@@ -37,8 +37,8 @@
 ### Improvements:
 * Better dynamic allocation using smart pointers.
 * Using more of STL features: iterators, containers, and functions.
-* Automated compilation and running using shell scripts.
-* Comiplation using cmake for MinGW MakeFiles or VS 2019 as mentioned above.
+* Automated compilation, linking process, and running the project using shell scripts.
+* Comiplation automated using cmake for MinGW MakeFiles or VS 2019 as mentioned above.
 
 ### Game instructions :
 
